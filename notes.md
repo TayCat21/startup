@@ -4,6 +4,7 @@
 ### 9/13/24
 
 **git commands**
+*You can find the VS Terminal under the View Tab at the Top*
 - commit *(git commit -m "commit note")* Confirms changes to code on a given end
     - In VS make sure to stage change before commiting
 - push *(git push)* pushes your commitment in VS up to Github
