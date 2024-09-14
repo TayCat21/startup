@@ -8,8 +8,8 @@ pitch goes here
 
 **Design**
 ### MyGoals Home
-![Mock Home](home.JPG)
+![Mock Home](pitchPics/home.JPG)
 ### Planning Stage
-![Mock Plan](plan.JPG)
+![Mock Plan](pitchPics/plan.JPG)
 ### Reflecting Stage
-![Mock Review](review.JPG)
+![Mock Review](pitchPics/review.JPG)
