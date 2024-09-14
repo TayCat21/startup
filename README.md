@@ -8,10 +8,15 @@ Have you struggled making and setting goals? Do you struggle sticking to your pl
 
 ## Design
 **MyGoals Home**
+
 ![Mock Home](pitchPics/home.JPG)
+
 **Planning Stage**
+
 ![Mock Plan](pitchPics/plan.JPG)
+
 **Reflecting Stage**
+
 ![Mock Review](pitchPics/review.JPG)
 
 ## Key Features
