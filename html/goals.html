@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyGoalSetter</title>
+    <link rel="icon" href="../favicon.ico" />
+  </head>
+  <body>
+   
+    <header>
+        <h1>Welcome to MyGoals</h1>
+        <h1><span class="username">John Doe!</span></h1>
+        <!-- Displays username -->
+
+        <hr />
+
+      <!-- Navigation elements -->
+      <nav>
+        <menu>
+          <li><a href="index.html">Login</a></li>
+          <li><a href="goals.html">MyGoals</a></li>
+        </menu>
+      </nav>
+
+      <hr />
+    </header>
+
+    <main>
+        <!-- subnav to add new goals -->
+        <div class="subnav">
+            <button class="subnavbtn">New Goal <i class="fa fa-caret-down"></i></button>
+            <div class="subnav-content">
+              <a href="plan.html">Set Goal</a>
+              <a href="ideas.html">Brainstorm Ideas</a>
+            </div>
+        </div>
+
+        <container>
+            <!-- Displays the Active goals -->
+            <h2>Active Goals</h2>
+
+            <ul>
+                <div class="active">
+                    <li>Goal 1</li>
+                    <button class="accordion">see more</button> <!-- Accordions inputed info on goal -->
+                    <div class="panel">
+                        <p>Lorem ipsum...</p>
+                        <button class="subnavbtn">... <i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content"> <!-- submenu lets user edit or review their goals -->
+                            <a href="plan.html">Edit Goal</a>
+                            <a href="review.html">Review Goal</a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="active">
+                    <li>Goal 2</li>
+                    <button class="accordion">see more</button> <!-- Accordions inputed info on goal -->
+                    <div class="panel">
+                        <p>Lorem ipsum...</p>
+                        <button class="subnavbtn">... <i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content"> <!-- submenu lets user edit or review their goals -->
+                            <a href="plan.html">Edit Goal</a>
+                            <a href="review.html">Review Goal</a>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="active">
+                    <li>Goal 3</li>
+                    <button class="accordion">see more</button> <!-- Accordions inputed info on goal -->
+                    <div class="panel">
+                        <p>Lorem ipsum...</p>
+                        <button class="subnavbtn">... <i class="fa fa-caret-down"></i></button>
+                        <div class="subnav-content"> <!-- submenu lets user edit or review their goals -->
+                            <a href="plan.html">Edit Goal</a>
+                            <a href="review.html">Review Goal</a>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+
+            <!-- Displays Accomplished goals -->
+            <h2>Past Goals</h2>
+            <ul class="past">
+                <div>
+                    <li class="past">Goal a</li>
+                </div>
+                <div>
+                    <li class="past">Goal b</li>
+                </div>
+                <div>
+                    <li class="past">Goal c</li>
+                </div>
+            </ul>
+
+        </container>
+
+        <aside>
+            <div class="shoutouts">
+                <h1>Achievements Log</h1> <!-- Websocket notifications -->
+            </div>
+            <ul class="notification">
+                <li class="username">Sara made a new goal</li>
+                <li class="username">Josh finished a Brainstorm</li>
+                <li class="username">Jordan reached their goal!</li>
+            </ul>
+        </aside>
+
+    </main>
+
+    <footer>
+      <hr />
+      <span class="text-reset">Tayzia Slade</span>
+      <br />
+      <a href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
+    </footer>
+  </body>
+</html>
