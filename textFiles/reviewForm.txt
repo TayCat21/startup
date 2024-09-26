@@ -1,0 +1,13 @@
+Goal review
+
+How did the goal go? (scale)
+why? (text)
+How do you feel about your growth? (button/dropdown)
+How much did you care about your goal? (scale)
+why? (text)
+Did you have external support? (yes/no)
+What were some successes? (text)
+What were some struggles? (text)
+What is something you would change about your goal? (text)
+
+(save button)
