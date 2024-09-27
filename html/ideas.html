@@ -20,24 +20,63 @@
           <li><a href="goals.html">MyGoals</a></li>
         </menu>
       </nav>
-
-      <hr />
     </header>
 
     <main>
-      <h1>Welcome to Simon</h1>
-      <form method="get" action="goals.html">
+
+        <p>
+            Give yourself 5 minutes and answer as many questions as you'd like! 
+            Once you're done, look over your answers to see if anything sticks.
+            It could be your next life-changer! Give it a try!
+        </p>
+
+        <div id="timer"></div> <!-- JS 5 min timer -->
+
+        <div class="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)"> <!-- can drag questions and responses -->
+            <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+                <p>What do I most enjoy doing?</p> <!-- Questions are randomized -->
+                <input type="text" placeholder="type here..." />
+            </div>
+        </div>
+        <br />
+        <div class="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+                <p>What is something I struggle with?</p>
+                <input type="text" placeholder="type here..." />
+            </div>
+        </div>
+        <br />
+        <div class="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+                <p>What is a talent I have always wanted to try?</p>
+                <input type="text" placeholder="type here..." />
+            </div>
+        </div>    
+        <br />
+
         <div>
-          <span>@</span>
-          <input type="text" placeholder="your@email.com" />
+            <button id="genQues">More Questions</button> <!-- Swaps out the questions -->
         </div>
         <div>
-          <span>🔒</span>
-          <input type="password" placeholder="password" />
+            <button id="stopTime">I'm Done</button>
         </div>
-        <button type="submit">Login</button>
-        <button type="submit">Create</button>
-      </form>
+        <br />
+
+        <aside>
+            <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">Idea Safehaven</div> <!-- drop saved questions here -->
+            <div class="popup">
+                <span class="popuptext" id="myPopup">
+                    <p>Great Job on your Brainstorming session! If there is an idea you love, 
+                        drag it to the box below and we'll set it into a goal!
+                    </p>
+                    <div class="droptarget" id="carrygoal" ondrop="drop(event)" ondragover="allowDrop(event)"></div> <!-- transfers info to goals -->
+                    <button><a href="plan.html">use Idea</a></button>
+                    <button><a href="goals.html">return to MyGoals</a></button>
+                </span>
+            </div>
+        </aside>
+      
+
     </main>
 
     <footer>
