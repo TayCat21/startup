@@ -10,41 +10,55 @@
   <body>
    
     <header>
-        <h2>Welcome to</h2>
-        <h1>MyGoalSetter</h1>
+        <h1>Goal Review</h1>
 
       <!-- Navigation elements -->
-      <nav>
-        <menu>
-          <li><a href="index.html">Login</a></li>
-          <li><a href="goals.html">MyGoals</a></li>
-        </menu>
-      </nav>
+        <nav>
+            <menu>
+            <li><a href="index.html">Login</a></li>
+            <li><a href="goals.html">MyGoals</a></li>
+            </menu>
+        </nav>
 
-      <hr />
+        <hr />
     </header>
 
     <main>
-      <h1>Welcome to Simon</h1>
-      <form method="get" action="goals.html">
-        <div>
-          <span>@</span>
-          <input type="text" placeholder="your@email.com" />
+        <h1><span class="goalName">Goal 1</span></h1>
+
+        <form>
+            <label>How did the goal go?</label>
+            <label>why?</label>
+            <input type="text" placeholder="type here..."><br><br>
+            <label>How much did you care about your goal?</label>
+            <label>why?</label>
+            <input type="text" placeholder="type here..."><br><br>
+            <label>Did you have any external support? (ie friends,family)</label>
+            <label>What benefits came from this goal?</label>
+            <input type="text" placeholder="type here..."><br><br>
+            <label>What problems came from this goal?</label>
+            <input type="text" placeholder="type here..."><br><br>
+            <label>To keep moving forward, how would you change your goal?</label>
+            <input type="text" placeholder="type here..."><br><br>
+            <button type="submit">Save</button>
+        </form>
+
+        <div class="popup">
+            <span class="popuptext" id="my2ndPopup">
+                <p>Excelent Work! How would you like to move forward?</p>
+                <button><a href="plan.html">Update Goal</a></button>
+                <button>Delete Goal</button>
+                <button>Mark as Accomplished</button>
+            </span>
         </div>
-        <div>
-          <span>🔒</span>
-          <input type="password" placeholder="password" />
-        </div>
-        <button type="submit">Login</button>
-        <button type="submit">Create</button>
-      </form>
+
     </main>
 
     <footer>
-      <hr />
-      <span class="text-reset">Tayzia Slade</span>
-      <br />
-      <a href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
+        <hr />
+        <span class="text-reset">Tayzia Slade</span>
+        <br />
+        <a href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
     </footer>
   </body>
 </html>
