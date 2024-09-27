@@ -24,31 +24,42 @@
     </header>
 
     <main>
-        <h1><span class="goalName">Goal 1</span></h1>
+        <h1><span class="goalName">Goal 1</span></h1> <!-- displays inputed goal -->
 
         <form>
-            <label>How did the goal go?</label>
+            <label>How did the goal go?</label><br>
+            <input type="range" min="0" max="10"><br>
             <label>why?</label>
             <input type="text" placeholder="type here..."><br><br>
-            <label>How much did you care about your goal?</label>
+
+            <label>How much did you care about your goal?</label><br>
+            <input type="range" min="0" max="10"><br>
             <label>why?</label>
             <input type="text" placeholder="type here..."><br><br>
-            <label>Did you have any external support? (ie friends,family)</label>
-            <label>What benefits came from this goal?</label>
+
+            <label>Did you have any external support? (ie friends,family)</label><br>
+            <label for="radio1">yes</label>
+            <input type="radio" id="radio1" name="varRadio" value="radio1" checked />
+            <label for="radio2">no</label>
+            <input type="radio" id="radio2" name="varRadio" value="radio2" /><br><br>
+
+            <label>What benefits came from this goal?</label><br>
             <input type="text" placeholder="type here..."><br><br>
-            <label>What problems came from this goal?</label>
+            <label>What problems came from this goal?</label><br>
             <input type="text" placeholder="type here..."><br><br>
-            <label>To keep moving forward, how would you change your goal?</label>
+
+            <label>To keep moving forward, how would you change your goal?</label><br>
             <input type="text" placeholder="type here..."><br><br>
-            <button type="submit">Save</button>
+
+            <button type="submit">Save</button> <!-- saves the info to look back on -->
         </form>
 
-        <div class="popup">
+        <div class="popup"> <!-- pops up after save -->
             <span class="popuptext" id="my2ndPopup">
                 <p>Excelent Work! How would you like to move forward?</p>
-                <button><a href="plan.html">Update Goal</a></button>
-                <button>Delete Goal</button>
-                <button>Mark as Accomplished</button>
+                <button><a href="plan.html">Update Goal</a></button> <!-- edits goal in planning -->
+                <button>Remove Goal</button> <!-- removes goal from Active -->
+                <button>Mark as Accomplished</button> <!-- removes from active & announces achieved in log -->
             </span>
         </div>
 
