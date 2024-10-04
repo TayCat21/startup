@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyGoalSetter Brainstorm</title>
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+   
+    <header>
+        <h2>Lets have a</h2>
+        <h1>Brainstorm!</h1>
+
+      <!-- Navigation elements -->
+      <nav>
+        <menu>
+          <li><a href="index.html">Login</a></li>
+          <li><a href="goals.html">MyGoals</a></li>
+        </menu>
+      </nav>
+    </header>
+
+    <main>
+
+        <p>
+            Give yourself 5 minutes and answer as many questions as you'd like! 
+            Once you're done, look over your answers to see if anything sticks.
+            It could be your next life-changer! Give it a try!
+        </p>
+
+        <div id="timer"></div> <!-- JS 5 min timer -->
+
+        <div class="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)"> <!-- can drag questions and responses -->
+            <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+                <p>What do I most enjoy doing?</p> <!-- Questions are randomized -->
+                <input type="text" placeholder="type here..." />
+            </div>
+        </div>
+        <br />
+        <div class="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+                <p>What is something I struggle with?</p>
+                <input type="text" placeholder="type here..." />
+            </div>
+        </div>
+        <br />
+        <div class="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+                <p>What is a talent I have always wanted to try?</p>
+                <input type="text" placeholder="type here..." />
+            </div>
+        </div>    
+        <br />
+
+        <div>
+            <button id="genQues">More Questions</button> <!-- Swaps out the questions -->
+        </div>
+        <div>
+            <button id="stopTime">I'm Done</button>
+        </div>
+        <br />
+
+        <aside>
+            <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">Idea Safehaven</div> <!-- drop saved questions here -->
+            <div class="popup"> <!-- pops up after timer or I'm Done -->
+                <span class="popuptext" id="myPopup"> <!-- announces brainstorm in log -->
+                    <p>Great Job on your Brainstorming session! If there is an idea you love, 
+                        drag it to the box below and we'll set it into a goal!
+                    </p>
+                    <div class="droptarget" id="carrygoal" ondrop="drop(event)" ondragover="allowDrop(event)"></div> <!-- drop main here -->
+                    <button><a href="plan.html">use Idea</a></button> <!-- transfers to planning -->
+                    <button><a href="goals.html">return to MyGoals</a></button>
+                </span>
+            </div>
+        </aside>
+      
+
+    </main>
+
+    <footer>
+      <hr />
+      <span class="text-reset">Tayzia Slade</span>
+      <br />
+      <a href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
+    </footer>
+  </body>
+</html>
