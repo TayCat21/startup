@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 375px;
+  }
+  
+  header {
+    flex: 0 80px;
+  }
+  
+  main {
+    flex: 1 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  footer {
+    flex: 1 1;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3em;
+  }
+  
+  menu {
+    flex: 1;
+    display: flex;
+    /*  overwrite Bootstrap so the menu does not wrap */
+    flex-direction: row !important;
+    list-style: none;
+  }
+  
+  .navbar-brand {
+    padding-left: 0.3em;
+    border-bottom: solid rgb(182, 182, 182) thin;
+  }
+  
+  menu .nav-item {
+    padding: 0 0.3em;
+  }
+  
+  footer a {
+    float: right;
+  }
+  
+  @media (max-height: 300px) {
+    header {
+      display: none;
+    }
+    footer {
+      display: none;
+    }
+    main {
+      flex: 1 100vh;
+    }
+  }
+  

@@ -6,49 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyGoalSetter Login</title>
     <link rel="icon" href="favicon.ico" />
+
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Include bootstrap CSS framework -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
    
-    <header>
-        <h2>Welcome to</h2>
-        <h1>MyGoalSetter</h1>
-
+    <header class="container-fluid">
       <!-- Navigation elements -->
-      <nav>
+      <nav class="navbar fixed-top navbar-dark">
         <menu>
           <li><a href="index.html">Login</a></li>
           <li><a href="goals.html">MyGoals</a></li>
         </menu>
       </nav>
 
-      <hr />
     </header>
 
     <main>
 
-      <form method="get" action="goals.html">
-        <div>
-          <span>👤</span>
-          <input type="text" placeholder="username" />
-        </div>
-        <div>
-          <span>@</span>
-          <input type="email" placeholder="your@email.com" />
-        </div>
-        <div>
-          <span>🔒</span>
-          <input type="password" placeholder="password" />
-        </div>
-        <button type="submit">Login</button>
-        <button type="submit">Sign Up</button>
-      </form>
+      <div class="container-fluid text-center">
+        <h2>Welcome to</h2>
+        <h1>MyGoalSetter</h1>
+      </div>
+
+      <container class="container-fluid text-center">
+        <form method="get" action="goals.html">
+          <div>
+            <span>👤</span>
+            <input type="text" placeholder="username" />
+          </div>
+          <div>
+            <span>@</span>
+            <input type="email" placeholder="your@email.com" />
+          </div>
+          <div>
+            <span>🔒</span>
+            <input type="password" placeholder="password" />
+          </div>
+          <button type="submit">Login</button>
+          <button type="submit">Sign Up</button>
+        </form>
+      </container>
     </main>
 
-    <footer>
-      <hr />
-      <span class="text-reset">Tayzia Slade</span>
-      <br />
-      <a href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
+    <footer class="bg-dark text-white-50">
+      <div class="container-fluid">
+        <span class="text-reset">Tayzia Slade</span>
+        <a class= "text-reset" href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
+      </div>
     </footer>
   </body>
 </html>
