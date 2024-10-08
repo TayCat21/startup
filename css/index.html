@@ -33,31 +33,31 @@
 
     <main>
 
-      <div class="container-fluid text-center">
+      <div class="container-fluid" id="myTitle">
         <h2>Welcome to</h2>
         <h1>MyGoalSetter</h1>
       </div>
 
-      <container class="container-fluid text-center">
+      <div class="container-fluid text-center" id="myDiv">
         <h2>Login</h2>
         <hr>
         <form method="get" action="goals.html">
-          <div>
-            <span>👤</span>
-            <input type="text" placeholder="username" />
+          <div class="input-group mb-3">
+            <span class="input-group-text">👤</span>
+            <input class="form-control" type="text" placeholder="username" />
           </div>
-          <div>
-            <span>@</span>
-            <input type="email" placeholder="your@email.com" />
+          <div class="input-group mb-3">
+            <span class="input-group-text">@</span>
+            <input class="form-control" type="email" placeholder="your@email.com" />
           </div>
-          <div>
-            <span>🔒</span>
-            <input type="password" placeholder="password" />
+          <div class="input-group mb-3">
+            <span class="input-group-text">🔒</span>
+            <input class="form-control" type="password" placeholder="password" />
           </div>
           <button type="submit">Login</button>
           <button type="submit">Sign Up</button>
         </form>
-      </container>
+      </div>
     </main>
 
     <footer class="bg-dark text-white-50">
