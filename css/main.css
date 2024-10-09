@@ -19,15 +19,28 @@ body {
     height: fit-content;
     position: absolute;
     top: 20%;
-    right: 20%;
+    right: 25%;
     bottom: 20%;
     left: 45%
   }
 
   #myTitle {
     float: left;
-    margin-left: 5%;
-    color: #fbcc4c
+    margin-left: 2%;
+    color: #faeb1f;
+    border-radius: 50%;
+    background: transparent;
+    z-index: 1;
+  }
+
+  .circle {
+    background: #1e939a;
+    border-radius: 50%;
+    width: 400px;
+    height: 350px;
+    left: -80px;
+    position: absolute;
+    z-index: 0;
   }
   
   main {
