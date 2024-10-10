@@ -23,7 +23,7 @@ footer {
     right: 3%;
     top: 130px;
     z-index: 2;
-    color: #faeb1f;
+    color: rgb(230, 244, 248);
   }
 
   aside {
@@ -55,8 +55,8 @@ footer {
     z-index: 0;
   }
 
-  .player-name {
-    color: rgb(118, 190, 210);
+  .username {
+    color: #faeb1f;
   }
 
   #player-messages {
