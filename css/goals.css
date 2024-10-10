@@ -10,11 +10,12 @@ footer {
     flex: 1;
     flex-direction: column;
     margin: 10px;
+    flex-basis: 66.66%;
   }
 
   container > div {
     margin: 25px;
-    max-width: 500px;
+    max-width: 700px;
   }
 
   #title {
@@ -27,7 +28,9 @@ footer {
 
   aside {
     position: static;
-    right: 15%;
+    right: 30%;
+    flex-basis: 33.33%;;
+    text-align: center;
   }
 
   .myCircle {
@@ -50,6 +53,34 @@ footer {
     top: 130px;
     position: absolute;
     z-index: 0;
+  }
+
+  .player-name {
+    color: rgb(118, 190, 210);
+  }
+
+  #player-messages {
+    padding-top: 0.25em;
+    opacity: 0.7;
+  }
+  
+  .event {
+    color: rgb(69, 69, 69);
+  }
+
+  .specialEvent {
+    color:  rgb(221, 148, 40);
+  }
+
+  .system-event {
+    color: #e06764;
+  }
+
+  #notifications {
+    background: #c3dfdc;
+    border: 2px solid #36cebe;
+    max-width: 350px;
+    min-height: 150px;
   }
 
   @media (max-width: 540px) {

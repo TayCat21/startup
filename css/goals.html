@@ -35,8 +35,8 @@
         <img src="favicon.ico"/>
         <a class="navbar-brand" href="#">MyGoalSetter</a>
         <menu class="navbar-nav">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Login</a></li>
-          <li class="nav-item"><a class="nav-link" href="goals.html">MyGoals</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Login</a></li>
+          <li class="nav-item"><a class="nav-link active" href="goals.html">MyGoals</a></li>
         </menu>
       </nav>
 
@@ -47,12 +47,13 @@
 
             <!-- dropdown to add new goals -->
             <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">New Goal</button>
+                <button onclick="myFunction()" class="dropbtn btn btn-primary">New Goal</button>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="goals.html">myGoals</a>
                     <a class="dropdown-item" href="plan.html">myGoalsetter</a>
                     <a class="dropdown-item" href="ideas.html">Brainstrom</a>
                 </div>
+                <a href="ideas.html">Access to ideas.html</a> <!-- will be deleted once button works -->
             </div>
 
             <!-- Displays the Active goals -->
@@ -161,11 +162,12 @@
         <aside>
             <div class="container-fluid text-center" class="shoutouts">
                 <h1>Achievements Log</h1> <!-- Websocket notifications -->
+                <hr>
             </div>
             <div  class="container-fluid text-center" id="notifications">
                 <div class="event"><span class="system-event">Sara</span> made a new goal</div>
                 <div class="event"><span class="system-event">Josh</span> finished a Brainstorm</div>
-                <div class="event"><span class="system-event">Jordan</span> achieved their goal!</div>
+                <div class="specialEvent"><span class="system-event">Jordan</span> achieved their goal!</div>
               </div>
         </aside>
 
