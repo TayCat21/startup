@@ -6,6 +6,12 @@ footer {
     height: 2em;
   }
 
+  .return {
+    margin-top: 60px;
+    margin-bottom: 10px;
+    color: white;
+  }
+
   main {
     display: flex;
     flex-wrap: wrap;
@@ -13,14 +19,13 @@ footer {
     flex-direction: row;
     align-items: normal;
     justify-content: normal;
-    border: 2px black solid;
+    border: 2px #1e939a solid;
   }
 
   .sideOne {
     display: flex;
     flex-basis: 60%;
     flex-direction: column;
-    border: 2px red solid;
   }
 
   form {
@@ -36,14 +41,48 @@ footer {
   .one {
     display: flex;
     flex-direction: row;
-    border: 2px blue solid;
+    border: 2px #1e939a solid;
+    background-color: #b2d8f1;
+  }
+
+  .two {
+    display: flex;
+    flex-direction: column;
+    border: 2px #1e939a solid;
+    background-color: #c7e1f1;
+    padding: 10px;
+  }
+
+  #SMART {
+    margin: 5px;
+  }
+
+  .Smart1 {
+    text-align: left;
+    color: #FF9D00;
+    font-size: 30px;
+    margin-top: 0px;
+    float: left;
+    clear: both;
+  }
+  
+  .Smart2 {
+    text-align: left;
+    padding-top: 10px;
+    color: #269CEB;
   }
 
   .three {
     display: flex;
     flex-basis: 40%;
     flex-direction: column;
-    border: 2px green solid;
+    border: 2px #1e939a solid;
+    background-color: #c7e1f1;
+    padding: 10px;
+  }
+
+ h2 {
+    color: #FF9D00;
   }
   
 
