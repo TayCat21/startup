@@ -34,7 +34,6 @@
         </menu>
       </nav>
 
-        <hr />
     </header>
 
     <main>
@@ -65,16 +64,30 @@
             <label>To keep moving forward, how would you change your goal?</label><br>
             <input type="text" placeholder="type here..."><br><br>
 
-            <input type="submit" value="Save"> <!-- saves the info to look back on -->
+            <input class="return btn btn-primary" type="submit" value="Save"> <!-- saves the info to look back on -->
         </form>
 
-        <div class="popup"> <!-- pops up after save -->
-            <span class="popuptext" id="my2ndPopup">
-                <p>Excelent Work! How would you like to move forward?</p>
-                <button><a href="plan.html">Update Goal</a></button> <!-- edits goal in planning -->
-                <button>Remove Goal</button> <!-- removes goal from Active -->
-                <button>Mark as Accomplished</button> <!-- removes from active & announces achieved in log -->
-            </span>
+        <div class="modal" tabindex="-1" role="dialog"> <!-- pops up after save -->
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body"> 
+                <span class="popuptext" id="my2ndPopup">
+                  <p>Excelent Work! How would you like to move forward?</p>
+                  </span>
+                <div class="modal-footer">
+                  <button><a href="plan.html">Update Goal</a></button> <!-- edits goal in planning -->
+                  <button>Remove Goal</button> <!-- removes goal from Active -->
+                  <button>Mark as Accomplished</button> <!-- removes from active & announces achieved in log -->
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
     </main>
