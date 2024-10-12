@@ -54,3 +54,19 @@ To be more Specific:
 - [x] **WebSocket** - There is an achievments log that will display when any user completes a given task (make goal, accomplish goal, etc).
 
 *I also have comments within my code to help explain functions*
+
+## CSS deliverable 🚀
+Here is the required information for my Startup CSS
+
+I took the time these last couple weeks to properly style the website to make it more appealing and understandable for the User.
+
+Including the following elements:
+
+- [x] **Header, footer, and main content body on each page**
+- [x] **Navigation Elements** - I got rid of the rough html design elements to add color, design, and anchored functionality.
+- [x] **Responsive Web Design** - The website has been designed to prioritize content based on whatever window design the User applies while still looking appealing.
+- [x] **Application elements** - I implemented good contrast and use of whitespace.
+- [x] **Application text content** - I used consistent fonts and color palette to tie everything together.
+- [ ] **Application Images** - Other than the favicon used on the navbar on each page, I still don't have any images for my site.
+
+*I also have comments within my code to help explain functions that don't appear due to lack of javascript*
