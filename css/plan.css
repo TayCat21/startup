@@ -5,3 +5,76 @@ footer {
     width: 100%;
     height: 2em;
   }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: normal;
+    border: 2px black solid;
+  }
+
+  .sideOne {
+    display: flex;
+    flex-basis: 60%;
+    flex-direction: column;
+    border: 2px red solid;
+  }
+
+  form {
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+
+  aside {
+    padding-left: 100px;
+    padding-top: 20px;
+  }
+
+  .one {
+    display: flex;
+    flex-direction: row;
+    border: 2px blue solid;
+  }
+
+  .three {
+    display: flex;
+    flex-basis: 40%;
+    flex-direction: column;
+    border: 2px green solid;
+  }
+  
+
+  #goalCarried {
+    padding: 15px;
+    border: 3px dotted #1e939a;
+    color: #1e939a;
+    background: #d1e8e9;
+    border-radius: 50%;
+    width: 255px;
+    height: 155px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 5px;
+  }
+
+  @media (max-width: 540px) {
+    header {
+      display: none;
+    }
+}
+
+@media (max-width: 774px) {
+    .two {
+      display: none;
+    }
+    .sideOne {
+        flex-basis: 100%;
+    }
+    .three {
+       flex-basis: 100%;
+    }
+}

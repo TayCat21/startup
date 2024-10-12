@@ -34,77 +34,77 @@
         </menu>
       </nav>
       <button><a href="goals.html">Save all & return to MyGoals</a></button> <!-- announces goal made in log -->
-      <hr />
     </header>
 
     <main>
-      <section>
-        <form>
-          <label for="goalName">Goal Name:</label><br> <!-- this input will be displayed on other pages -->
-          <input type="text" id="goalName" name="goalName" placeholder="Type here..."><br><br>
-          <label for="goalDesc">Describe Goal:</label><br>
-          <input type="text" id="goalDesc" name="goalDesc" placeholder="Type here..."><br><br>
-          <input type="submit" value="Save">
-        </form>
-      </section>
+      <container class="sideOne">
+        <section class="one">
+          <form class="form-group">
+            <label for="goalName">Goal Name:</label><br> <!-- this input will be displayed on other pages -->
+            <input class="form-control" type="text" id="goalName" name="goalName" placeholder="Type here..."><br><br>
+            <label for="goalDesc">Describe Goal:</label><br>
+            <input class="form-control" type="text" id="goalDesc" name="goalDesc" placeholder="Type here..."><br><br>
+            <input class="btn btn-secondary" type="submit" value="Save">
+          </form>
+          <aside>
+            <div id="goalCarried">myIdea</div> <!-- displays idea carried from brainstorm / hidden otherwise -->
+          </aside>
+        </section>
 
-      <section>
-        <h4>Let's narrow that down!</h4>
-        <p>Apply the goal in a way that is</p> <!-- user sandbox to help narrow the goal plan -->
+        <section class="two">
+          <h4>Let's narrow that down!</h4>
+          <p>Apply the goal in a way that is</p> <!-- user sandbox to help narrow the goal plan -->
 
-        <div>
-          <h4 class="Smart">S</h4><p>pecific</p>
-          <input type="text" placeholder="Type here...">
-        </div>
-        <div>
-          <h4 class="Smart">M</h4><p>easurable</p>
-          <input type="text" placeholder="Type here...">
-        </div>
-        <div>
-          <h4 class="Smart">A</h4><p>chievable</p>
-          <input type="text" placeholder="Type here...">
-        </div>
-        <div>
-          <h4 class="Smart">R</h4><p>elavent</p>
-          <input type="text" placeholder="Type here...">
-        </div>
-        <div>
-          <h4 class="Smart">T</h4><p>ime-bound</p>
-          <input type="text" placeholder="Type here...">
-        </div>
-      </section>
+          <div>
+            <h4 class="Smart">S</h4><p>pecific</p>
+            <input class="form-control" type="text" placeholder="Type here...">
+          </div>
+          <div>
+            <h4 class="Smart">M</h4><p>easurable</p>
+            <input class="form-control" type="text" placeholder="Type here...">
+          </div>
+          <div>
+            <h4 class="Smart">A</h4><p>chievable</p>
+            <input class="form-control" type="text" placeholder="Type here...">
+          </div>
+          <div>
+            <h4 class="Smart">R</h4><p>elavent</p>
+            <input class="form-control" type="text" placeholder="Type here...">
+          </div>
+          <div>
+            <h4 class="Smart">T</h4><p>ime-bound</p>
+            <input class="form-control" type="text" placeholder="Type here...">
+          </div>
+        </section>
+      </container>
 
-      <section>
+      <section class="three">
         <div>
           <h2>Long-term</h2>
           <p>What is the overall outcome you wish to achieve?</p>
-          <input type="text" placeholder="Type here..."><br><br>
-          <form>
+          <input class="form-control" type="text" placeholder="Type here..."><br><br>
+          <form class="form-group">
             <label for="goalDate">When would you like to achieve it?</label><br> <!-- date will be displayed on other pages -->
-            <input type="date" id="goalDate" name="goalDate"><br><br>
-            <input type="submit" value="Save">
+            <input class="form-control" type="date" id="goalDate" name="goalDate"><br><br>
+            <input class="form-control" type="submit" value="Save">
           </form>
         </div>
 
         <div>
           <h2>Short-term</h2>
           <p>What is a step you can take to achieve it?</p>
-          <input type="text" placeholder="Type here..."><br>
+          <input class="form-control" type="text" placeholder="Type here..."><br>
 
           <p>It is good to check back on goals during the process to know how to best move forward</p>
-          <form>
+          <form class="form-group">
             <label for="reviewDate">When would be a good time to review your goal?</label><br>
-            <input type="date" id="reviewDate" name="reviewDate"><br><br> <!-- once date reached, triggers review notification -->
-            <input type="submit" value="Save">
+            <input class="form-control" type="date" id="reviewDate" name="reviewDate"><br><br> <!-- once date reached, triggers review notification -->
+            <input class="form-control" type="submit" value="Save">
           </form>
         </div>
       </section>
 
     </main>
-
-    <aside>
-      <div id="goalCarried"></div> <!-- displays idea carried from brainstorm / hidden otherwise -->
-    </aside>
 
     <footer class="bg-dark text-white-50">
       <div class="container-fluid">

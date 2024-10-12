@@ -22,8 +22,10 @@
   <body>
    
     <header>
-        <h2>Lets have a</h2>
-        <h1>Brainstorm!</h1>
+        <div id="ideasTitle">
+          <h2>Lets have a</h2>
+          <h1>Brainstorm!</h1>
+        </div>
 
        <!-- Navigation elements -->
        <nav class="navbar fixed-top navbar-dark">
@@ -38,13 +40,12 @@
 
     <main>
 
-        <p>
+      <div class="container-fluid text-center">
+        <p id="ideaDesc">
             Give yourself 5 minutes and answer as many questions as you'd like! 
             Once you're done, look over your answers to see if anything sticks.
             It could be your next life-changer! Give it a try!
         </p>
-
-        <div id="timer"></div> <!-- JS 5 min timer -->
 
         <div class="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)"> <!-- can drag questions and responses -->
             <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
@@ -69,27 +70,44 @@
         <br />
 
         <div>
-            <button id="genQues">More Questions</button> <!-- Swaps out the questions -->
-        </div>
-        <div>
-            <button id="stopTime">I'm Done</button>
+            <button id="genQues" class="btn btn-primary">More Questions</button> <!-- Swaps out the questions -->
         </div>
         <br />
+        <div>
+            <button id="stopTime" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">I'm Done</button>
+        </div>
+      </div>
 
-        <aside>
-            <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">Idea Safehaven</div> <!-- drop saved questions here -->
-            <div class="popup"> <!-- pops up after timer or I'm Done -->
+      <aside class="container-fluid text-center">
+          <div id="timer">5:00</div> <!-- JS 5 min timer -->
+          <div class="droptarget" id="carrygoal" ondrop="drop(event)" ondragover="allowDrop(event)">Use Me</div> <!-- drop main here -->
+          <br />
+          <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">Idea Safehaven</div> <!-- drop saved questions here -->
+          <br />
+          <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">Idea Safehaven</div>
+
+          <div class="modal" tabindex="-1" role="dialog"> <!-- pops up after timer or I'm Done -->
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body"> 
                 <span class="popuptext" id="myPopup"> <!-- announces brainstorm in log -->
                     <p>Great Job on your Brainstorming session! If there is an idea you love, 
                         drag it to the box below and we'll set it into a goal!
                     </p>
-                    <div class="droptarget" id="carrygoal" ondrop="drop(event)" ondragover="allowDrop(event)"></div> <!-- drop main here -->
-                    <button><a href="plan.html">use Idea</a></button> <!-- transfers to planning -->
-                    <button><a href="goals.html">return to MyGoals</a></button>
-                </span>
+                    </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
             </div>
-        </aside>
-      
+      </aside>
 
     </main>
 

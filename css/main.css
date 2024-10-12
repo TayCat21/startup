@@ -97,5 +97,8 @@ body {
     #myDiv {
         top: 5%;
     }
+    #ideaDesc {
+      display: none;
+    }
   }
   
