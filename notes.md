@@ -1,6 +1,9 @@
 # My Class Notes
 *I get to use these notes on the midterm*
 
+[[README.md]]
+*Link to README*
+
 ### git commands
 *You can find the VS Terminal under the View Tab at the Top*
 - commit *(git commit -m "commit note")* Confirms changes to code on a given end
@@ -18,3 +21,5 @@
 - once your ready to upload it to the web, *cd* into the project and type this command *(./deployFiles.sh -k <yourpemkey> -h <yourdomain> -s startup)*
     - *make sure you do the correct files to reach the key (ie ../keys/yourpemkey)*
     - *replace 'startup' with whatever subdomain you want*
+
+
