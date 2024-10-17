@@ -1,7 +1,7 @@
 # My Class Notes
 *I get to use these notes on the midterm*
 
-[[Link to README]] (README.md)
+[Link to README](README.md)
 
 ### git commands
 *You can find the VS Terminal under the View Tab at the Top*
