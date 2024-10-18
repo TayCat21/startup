@@ -35,14 +35,14 @@ const myObject = {
   }
 }
 - DOM textContent sets the child text for an element
-- <a> is for hyperlink <link> is for linking CSS and others
-    - wrap <img> with <a> to make image a hyperlink
+- a is for hyperlink link is for linking CSS and others
+    - wrap img with a to make image a hyperlink
 - CSS: Class (.) ID (#)
 - valid JSON: {"x":3}
 - JSON is purely a string with a specified data format — it contains only properties, no methods. JSON requires double quotes to be used around strings and property names. Single quotes are not valid other than surrounding the entire JSON string.
 - comsole commade for a script executable (chmod +x deploy.sh)
 - flex forms child elements into a row or a column
-- use <!DOCTYPE html> to start html file
+- use !DOCTYPE html to start html file
 - JavaScript switch statements
 switch (expression) {
   case value1:
