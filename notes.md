@@ -2,6 +2,7 @@
 *I get to use these notes on the midterm*
 
 [Link to README](README.md)
+
 [Link to class Github page](https://learn.cs260.click/page/schedule/VenturaF2024_md)
 
 ### git commands

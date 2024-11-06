@@ -1,0 +1,95 @@
+footer {
+    flex: 2 1;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    height: 2em;
+  }
+
+  main {
+    justify-content: space-evenly;
+  }
+
+  main > div {
+    flex-basis: 50%;
+    background: #d1e8e9;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  aside {
+    flex-basis: 50%;;
+    padding: 35px;
+    max-width: 350px;
+    align-items: center;
+  }
+
+  #ideasTitle {
+    position: absolute;
+    right: 60%;
+    top: 90px;
+    color:#dd9428;
+  }
+
+  #ideaDesc {
+    width: 100%;
+    background: #1e939a;
+    color: white;
+    padding: 5px;
+    border: 2px solid #dd9428;
+  }
+
+  .ideaQuestion {
+    background: #36cebe;
+    border-radius: 50%;
+    width: 250px;
+    height: 150px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 5px;
+  }
+
+  #timer {
+    background: #1e939a ;
+    color: #faeb1f;
+    border-radius: 50%;
+    padding: 15px;
+    border: 5px solid #36cebe ;
+    position: absolute;
+    font-size: 50px;
+    right: 17%;
+    top: 110px;
+  }
+
+  .droptarget {
+    padding: 15px;
+    border: 3px dotted #1e939a;
+    color: #1e939a;
+    background: #d1e8e9;
+    border-radius: 50%;
+    width: 255px;
+    height: 155px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 5px;
+  }
+
+  #carrygoal {
+    border-color: #dd9428;
+  }
+
+  @media (max-width: 540px) {
+    aside {
+      display: none;
+    }
+    header {
+      display: none;
+    }
+}

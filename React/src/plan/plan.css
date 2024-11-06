@@ -1,0 +1,119 @@
+footer {
+    flex: 2 1;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    height: 2em;
+  }
+
+  .return {
+    margin-top: 60px;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1;
+    flex-direction: row;
+    align-items: normal;
+    justify-content: normal;
+    border: 2px #1e939a solid;
+  }
+
+  .sideOne {
+    display: flex;
+    flex-basis: 60%;
+    flex-direction: column;
+  }
+
+  form {
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+
+  aside {
+    padding-left: 100px;
+    padding-top: 20px;
+  }
+
+  .one {
+    display: flex;
+    flex-direction: row;
+    border: 2px #1e939a solid;
+    background-color: #b2d8f1;
+  }
+
+  .two {
+    display: flex;
+    flex-direction: column;
+    border: 2px #1e939a solid;
+    background-color: #c7e1f1;
+    padding: 10px;
+  }
+
+  #SMART {
+    margin: 5px;
+  }
+
+  .Smart1 {
+    text-align: left;
+    color: #FF9D00;
+    font-size: 30px;
+    margin-top: 0px;
+    float: left;
+    clear: both;
+  }
+  
+  .Smart2 {
+    text-align: left;
+    padding-top: 10px;
+    color: #269CEB;
+  }
+
+  .three {
+    display: flex;
+    flex-basis: 40%;
+    flex-direction: column;
+    border: 2px #1e939a solid;
+    background-color: #c7e1f1;
+    padding: 10px;
+  }
+
+ h2 {
+    color: #FF9D00;
+  }
+  
+
+  #goalCarried {
+    padding: 15px;
+    border: 3px dotted #1e939a;
+    color: #1e939a;
+    background: #d1e8e9;
+    border-radius: 50%;
+    width: 255px;
+    height: 155px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 5px;
+  }
+
+  @media (max-width: 540px) {
+    header {
+      display: none;
+    }
+}
+
+@media (max-width: 774px) {
+    .two {
+      display: none;
+    }
+    .sideOne {
+        flex-basis: 100%;
+    }
+    .three {
+       flex-basis: 100%;
+    }
+}
