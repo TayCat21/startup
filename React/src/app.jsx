@@ -12,26 +12,44 @@ export default function App() {
     return (
         <BrowserRouter>
             <div>
-                <header class="container-fluid">
-                    <nav class="navbar fixed-top navbar-dark">
+                <header className="container-fluid">
+                    <nav className="navbar fixed-top navbar-dark">
                         <img src="favicon.ico"/>
-                        <a class="navbar-brand" href="#">MyGoalSetter</a>
-                        <menu class="navbar-nav">
-                            <li class="nav-item"><a class="nav-link active" href="index.html">Login</a></li>
-                            <li class="nav-item"><a class="nav-link" href="goals.html">MyGoals</a></li>
+                        <div className="navbar-brand" href="#">MyGoalSetter</div>
+                        <menu className="navbar-nav">
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="">Login</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="goals">MyGoals</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to="ideas">Brainstorm</NavLink>
+                            </li>
                         </menu>
                     </nav>
                 </header>
   
-                <main>App components go here</main>
+                <Routes>
+                    <Route path='/' element={<Login />} exact />
+                    <Route path='/goals' element={<Goals />} />
+                    <Route path='/ideas' element={<Ideas />} />
+                    <Route path='/plan' element={<Plan />} />
+                    <Route path='/review' element={<Review />} />
+                    <Route path='*' element={<NotFound />} />
+                </Routes>
   
-            <   footer class="bg-dark text-white-50">
-                    <div class="container-fluid">
-                        <span class="text-reset">Tayzia Slade</span>
-                        <a class= "text-reset" href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
+            <   footer className="bg-dark text-white-50">
+                    <div className="container-fluid">
+                        <span className="text-reset">Tayzia Slade</span>
+                        <a className= "text-reset" href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
                     </div>
                 </footer>
             </div>
         </BrowserRouter>
     );
+  }
+
+  function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
   }
