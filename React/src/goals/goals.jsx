@@ -9,11 +9,10 @@ export function Goals() {
             <div className="dropdown">
                 <button onclick="myFunction()" className="dropbtn btn btn-primary">New Goal</button>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a className="dropdown-item" href="goals.html">myGoals</a>
-                    <a className="dropdown-item" href="plan.html">myGoalsetter</a>
-                    <a className="dropdown-item" href="ideas.html">Brainstrom</a>
+                    <a className="dropdown-item" href="goals">myGoals</a>
+                    <a className="dropdown-item" href="plan">myGoalsetter</a>
+                    <a className="dropdown-item" href="ideas">Brainstrom</a>
                 </div>
-                <a href="ideas.html">Access to ideas.html</a> 
             </div>
 
             <div className="active">
@@ -31,8 +30,8 @@ export function Goals() {
                             <p className="goalDesc">Lorem ipsum...</p> 
                             <p className="goalDate">mm/dd/yyyy</p> 
                             <p className="reviewDate">review set for: mm/dd/yyyy</p>
-                            <button><a href="plan.html">Edit Goal</a></button>
-                            <button><a href="review.html">Review Goal</a></button>
+                            <button><a href="plan">Edit Goal</a></button>
+                            <button><a href="review">Review Goal</a></button>
                         </div>
                     </div>
                     </div>
@@ -47,8 +46,8 @@ export function Goals() {
                                 <p className="goalDesc">Lorem ipsum...</p> 
                                 <p className="goalDate">mm/dd/yyyy</p> 
                                 <p className="reviewDate">review set for: mm/dd/yyyy</p> 
-                                <button><a href="plan.html">Edit Goal</a></button>
-                                <button><a href="review.html">Review Goal</a></button>
+                                <button><a to="plan">Edit Goal</a></button>
+                                <button><a to="review">Review Goal</a></button>
                             </div>
                         </div>
                     </div>

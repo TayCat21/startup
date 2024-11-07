@@ -13,7 +13,7 @@ export function Login() {
 
       <div className="container-fluid text-center" id="myDiv">
         <h2>Login</h2>
-        <form method="get" action="goals.html">
+        <form method="get" action="goals">
           <div className="input-group mb-3">
             <span className="input-group-text">👤</span>
             <input className="form-control" type="text" placeholder="username" />
