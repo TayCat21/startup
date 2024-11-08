@@ -31,7 +31,6 @@ footer {
   flex-shrink: 0; /* Prevent shrinking */
   width: 100%; /* Full width */
   height: 2em;
-  background-color: #f1f1f1; /* Optional */
 }
 
 /* Styling for menu items */
@@ -73,6 +72,11 @@ footer a {
   margin-bottom: 6%;
   height: auto;
   z-index: 1;
+}
+
+button {
+    display: inline-block; /* Make sure buttons are inline-block for margin to work */
+    margin-right: 10px;
 }
 
 #myForm {

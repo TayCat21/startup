@@ -6,53 +6,47 @@ footer {
     height: 2em;
   }
 
-  container {
+  .container {
     flex: 1;
     flex-direction: column;
     margin: 10px;
     flex-basis: 66.66%;
+    background-color: transparent;
   }
 
-  container > div {
+  .container > div {
     margin: 25px;
     max-width: 700px;
   }
 
-  #title {
-    position: absolute;
-    right: 3%;
-    top: 130px;
-    z-index: 2;
-    color: rgb(230, 244, 248);
+  #active {
+    background-color: #cce9e6;
+    border: 2px solid #1e939a;
+    padding: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: -50px;
+  }
+
+  #past {
+    background-color: #cce9e6;
+    border: 2px solid #1e939a;
+    margin-top: 0;
+    padding: 15px;
+    margin-left: -50px;
+  }
+
+  h1 {
+    width: fit-content;
+    margin-bottom: 15px;
   }
 
   aside {
-    position: static;
-    right: 30%;
+    position: absolute;
+    top: 20%;
+    right: 8%;
     flex-basis: 33.33%;;
     text-align: center;
-  }
-
-  .myCircle {
-    background: #1e939a;
-    background-size: 100% 100%;
-    border-radius: 50%;
-    width: 310px;
-    height: 300px;
-    right: 0px;
-    position: absolute;
-    z-index: 1;
-  }
-  .miniCircle {
-    background: #36cebe;
-    background-size: 100% 100%;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    right: 240px;
-    top: 130px;
-    position: absolute;
-    z-index: 0;
   }
 
   .username {
@@ -79,9 +73,63 @@ footer {
   #notifications {
     background: #c3dfdc;
     border: 2px solid #36cebe;
+    margin-left: 15px;
+    width: 250px;
     max-width: 350px;
     min-height: 150px;
   }
+
+  .myButton {
+    display: inline-block; /* Make sure buttons are inline-block for margin to work */
+    margin-right: 10px; /* Space between buttons */
+    background-color: #36cebe; /* Button background color */
+    border: none;
+    border-radius: 4px;
+    font-size: small;
+    color: white; /* Text color */
+    cursor: pointer;
+    width: 100px;
+  }
+
+  button a {
+    color: inherit; /* Inherit color from the button */
+    text-decoration: none; /* Remove underline */
+    display: inline; /* Make sure it behaves like a regular inline element */
+    margin-inline: 5% 10%;
+}
+
+  .accordion-button {
+    transition: background-color 0.3s ease; /* Smooth transition */
+    background-color: #36cebe; /* Darker blue when expanded and hovered */
+    color:white;
+    font: 30px bold;
+}
+
+/* Change color when hovered */
+.accordion-button:hover {
+    background-color: #2eb6a8; /* Blue background on hover */
+    color: white; /* White text color on hover */
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #36cebe; /* Darker blue when expanded and hovered */
+  color:white;
+  font: 30px bold;
+}
+
+/* If you want to change the hover effect for collapsed items as well */
+.accordion-button:not(.collapsed):hover {
+    background-color: #0056b3; /* Darker blue when expanded and hovered */
+}
+
+.dropdown-item:hover {
+  background-color: white; /* Blue background on hover */
+  color: #007bff; /* White text color on hover */
+}
+
+#goalButton {
+  width: fit-content;
+}
 
   @media (max-width: 540px) {
     aside {
