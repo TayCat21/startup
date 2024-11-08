@@ -2,18 +2,16 @@ import React from 'react';
 
 export function Login() {
   return (
-    <main>
+    <main className="login-container">
 
-      <div className="circle"></div>
-      
-      <div className="container-fluid" id="myTitle">
+      <div id="myTitle" className="circle">
         <h2>Welcome to</h2>
         <h1>MyGoalSetter</h1>
       </div>
 
       <div className="container-fluid text-center" id="myDiv">
         <h2>Login</h2>
-        <form method="get" action="goals">
+        <form id="myForm" method="get" action="goals">
           <div className="input-group mb-3">
             <span className="input-group-text">👤</span>
             <input className="form-control" type="text" placeholder="username" />

@@ -1,104 +1,123 @@
+/* Ensure the entire document takes the full height of the viewport */
+html, body {
+  height: 100%; /* Make the root elements fill the viewport height */
+  margin: 0;
+  padding: 0;
+}
+
+/* Flexbox layout for body */
 .body {
-    display: flex;
-    flex-direction: column;
-    min-width: 375px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  min-width: 375px; /* Optional, for mobile view */
+  height: 100%; /* Make sure the body container takes full viewport height */
+}
+
+/* Header stays at fixed height */
+header {
+  flex: 0 0 150px; 
+}
+
+main {
+  flex: 1; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* Footer styling */
+footer {
+  flex-shrink: 0; /* Prevent shrinking */
+  width: 100%; /* Full width */
+  height: 2em;
+  background-color: #f1f1f1; /* Optional */
+}
+
+/* Styling for menu items */
+menu {
+  flex: 1;
+  display: flex;
+  flex-direction: row !important;
+  list-style: none;
+}
+
+nav {
+  background: #36cebe;
+}
+
+.navbar-brand {
+  padding-left: 0.3em;
+  border-bottom: solid rgb(251, 204, 76) thin;
+}
+
+menu .nav-item {
+  padding: 0 0.3em;
+}
+
+footer a {
+  float: right;
+}
+
+/* Styling for your div */
+#myDiv {
+  display: flex;
+  flex-direction: column;
+  background: #c9f0ed;
+  color: #1e939a;
+  padding: 0;
+  border: 5px solid #36cebe;
+  width: auto;
+  margin-top: -15%;
+  margin-right: 5%;
+  margin-bottom: 6%;
+  height: auto;
+  z-index: 1;
+}
+
+#myForm {
+  border: transparent;
+  background: transparent;
+  padding: 0.5em;
+  margin: 0.5em;
+  width: 350px;
+}
+
+#myTitle {
+  position: relative;
+  color: #faeb1f;
+  padding: 0;
+}
+
+#myTitle h2 {
+  color: #fcffff;
+}
+
+
+.circle {
+  background: #1e939a;
+  border-radius: 50%;
+  border: 3px solid #36cebe;
+  width: 100px;
+  height: 300px;
+  position: absolute;
+  top: -65px;
+  left: -180px;
+  z-index: 0;
+}
+
+/* Media Query Adjustments */
+@media (max-height: 375px) {
   header {
-    flex: 0 150px;
+    display: none; 
   }
-
-  #myDiv {
-    display: flex;
-    flex-direction: column;
-    background: #c9f0ed;
-    color: #1e939a;
-    padding: 0.8em;
-    border: 5px solid #36cebe;
-    width: 50%;
-    height: fit-content;
-    position: absolute;
-    top: 20%;
-    right: 25%;
-    bottom: 20%;
-    left: 45%
-  }
-
-  #myTitle {
-    float: left;
-    margin-left: 2%;
-    color: #faeb1f;
-    border-radius: 50%;
-    background: transparent;
-    z-index: 1;
-  }
-
-  .circle {
-    background: #1e939a;
-    border-radius: 50%;
-    width: 400px;
-    height: 350px;
-    left: -80px;
-    position: absolute;
-    z-index: 0;
-  }
-  
-  main {
-    flex: 1 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
   footer {
-    flex: 1 1;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2em;
+    display: none; 
   }
-  
-  menu {
-    flex: 1;
-    display: flex;
-    /*  overwrite Bootstrap so the menu does not wrap */
-    flex-direction: row !important;
-    list-style: none;
+  main {
+    flex: 1; 
   }
-
-  nav {
-    background: #36cebe;
+  #myDiv {
+    top: 0; 
   }
-  
-  .navbar-brand {
-    padding-left: 0.3em;
-    border-bottom: solid rgb(251,204,76) thin;
-  }
-  
-  menu .nav-item {
-    padding: 0 0.3em;
-  }
-  
-  footer a {
-    float: right;
-  }
-  
-  @media (max-height: 375px) {
-    header {
-      display: none;
-    }
-    footer {
-      display: none;
-    }
-    main {
-      flex: 2 100vh;
-    }
-    #myDiv {
-        top: 5%;
-    }
-    #ideaDesc {
-      display: none;
-    }
-  }
-  
+}
