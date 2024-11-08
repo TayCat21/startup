@@ -1,5 +1,6 @@
 import React from 'react';
 import './ideas.css';
+import Timer from './timer';
 
 export function Ideas() {
   return (
@@ -44,7 +45,9 @@ export function Ideas() {
         </div>
 
         <aside className="container-fluid text-center">
-            <div id="timer">5:00</div> 
+            <div id="timer">
+                <Timer />
+            </div> 
 
             <div className="modal" tabindex="-1" role="dialog"> 
                 <div className="modal-dialog" role="document">
