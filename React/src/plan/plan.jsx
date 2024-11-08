@@ -13,9 +13,6 @@ export function Plan() {
                     <input className="form-control" type="text" id="goalDesc" name="goalDesc" placeholder="Type here..." /><br /><br />
                     <input className="btn btn-secondary" type="submit" value="Save" />
                 </form>
-                <aside>
-                    <div id="goalCarried">myIdea</div> 
-                </aside>
             </section>
 
             <section className="two">

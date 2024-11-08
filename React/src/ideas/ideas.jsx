@@ -45,11 +45,6 @@ export function Ideas() {
 
         <aside className="container-fluid text-center">
             <div id="timer">5:00</div> 
-            <div className="droptarget" id="carrygoal" ondrop="drop(event)" ondragover="allowDrop(event)">Use Me</div> 
-            <br />
-            <div className="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">Idea Safehaven</div> 
-            <br />
-            <div className="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">Idea Safehaven</div>
 
             <div className="modal" tabindex="-1" role="dialog"> 
                 <div className="modal-dialog" role="document">

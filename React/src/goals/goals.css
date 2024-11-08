@@ -119,7 +119,7 @@ footer {
 
 /* If you want to change the hover effect for collapsed items as well */
 .accordion-button:not(.collapsed):hover {
-    background-color: #0056b3; /* Darker blue when expanded and hovered */
+    background-color: #2eb6a8; /* Darker blue when expanded and hovered */
 }
 
 .dropdown-item:hover {
