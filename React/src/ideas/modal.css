@@ -8,8 +8,8 @@
     max-height: 500px;
     height: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 1100;
+    position: relative; 
+    z-index: 2000;
     display: none; /* Default is hidden */
     align-content: center;
 }
@@ -74,4 +74,18 @@ p {
     margin-bottom: 2em;
     color: blue;
     font: 20px bold;
+}
+
+/* CSS for the Confetti Fade-Out */
+.confetti-fade-out {
+    animation: fadeOut 1s forwards; /* Apply fade-out effect */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1; /* Start fully visible */
+    }
+    100% {
+        opacity: 0; /* End fully transparent */
+    }
 }
