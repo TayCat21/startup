@@ -1,0 +1,30 @@
+/* Overlay styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark background */
+    display: flex;
+    justify-content: center;  /* Centers modal horizontally */
+    align-items: center;      /* Centers modal vertically */
+    z-index: 1000;            /* Ensures overlay appears above page content */
+  }
+  
+  /* Modal content box styling */
+  .modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 80%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative; /* Ensure it's positioned properly */
+    z-index: 1100;      /* Ensure modal is above the overlay */
+  }
+  
+  button {
+    padding: 8px 16px;
+    cursor: pointer;
+  }

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ideas.css';
 import Timer from './timer';
+import Modal from './popup';
 
 export function Ideas() {
-  return (
+ return (
     <main>
 
         <div className="container-fluid text-center">
@@ -13,22 +14,22 @@ export function Ideas() {
                 It could be your next life-changer! Give it a try!
             </p>
 
-            <div className="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)"> 
-                <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+            <div className="ideaQuestion"> 
+                <div>
                     <p>What do I most enjoy doing?</p> 
                     <input type="text" placeholder="type here..." />
                 </div>
             </div>
             <br />
-            <div className="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+            <div className="ideaQuestion">
+                <div>
                     <p>What is something I struggle with?</p>
                     <input type="text" placeholder="type here..." />
                 </div>
             </div>
             <br />
-            <div className="ideaQuestion" ondrop="drop(event)" ondragover="allowDrop(event)">
-                <div ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+            <div className="ideaQuestion">
+                <div>
                     <p>What is a talent I have always wanted to try?</p>
                     <input type="text" placeholder="type here..." />
                 </div>
@@ -42,33 +43,15 @@ export function Ideas() {
             <div>
                 <button id="stopTime" className="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">I'm Done</button>
             </div>
+            <div>
+                <Modal />
+            </div>
         </div>
 
         <aside className="container-fluid text-center">
             <div id="timer">
                 <Timer />
             </div> 
-
-            <div className="modal" tabindex="-1" role="dialog"> 
-                <div className="modal-dialog" role="document">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title">Modal title</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div className="modal-body"> 
-                            <p>Great Job on your Brainstorming session! If there is an idea you love, 
-                                drag it to the box below and we'll set it into a goal!
-                            </p>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </aside>
     </main>
   );
