@@ -1,32 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { AuthState } from './authState';
+import { Unauthenticated } from './unauthenticated';
+import { Authenticated } from './authenticated';
 
-export function Login() {
+export function Login({ onAuthChange }) {
+  const [authState, setAuthState] = useState(AuthState.Unknown);
+  const [userName, setUserName] = useState('');
+
+  useEffect(() => {
+    // Check if there's a saved user in localStorage
+    const storedUserName = localStorage.getItem('userName');
+    if (storedUserName) {
+      // If we find a username in localStorage, set AuthState to Authenticated
+      setUserName(storedUserName);
+      setAuthState(AuthState.Authenticated);
+    } else {
+      setAuthState(AuthState.Unauthenticated);
+    }
+  }, []);
+
+  const handleLogin = (userName) => {
+    setUserName(userName);
+    localStorage.setItem('userName', userName);
+    setAuthState(AuthState.Authenticated);
+    onAuthChange(userName, AuthState.Authenticated);  // Update the parent component's auth state
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('userName');
+    setAuthState(AuthState.Unauthenticated);
+    onAuthChange(null, AuthState.Unauthenticated);  // Update the parent component's auth state
+  };
+
   return (
-    <main className="login-container">
+    <main className="container-fluid text-center">
+      <div id="myDiv">
+        {/* Display the main title only if auth state is not Unknown */}
+        {authState !== AuthState.Unknown && <h1 id="myTitle">Welcome to MyGoalSetter</h1>}
+        
+        {/* Render Authenticated state */}
+        {authState === AuthState.Authenticated && (
+          <Authenticated userName={userName} onLogout={handleLogout} />
+        )}
 
-      <div id="myTitle" className="circle">
-        <h2>Welcome to</h2>
-        <h1>MyGoalSetter</h1>
-      </div>
-
-      <div className="container-fluid text-center" id="myDiv">
-        <h2>Login</h2>
-        <form id="myForm" method="get" action="goals">
-          <div className="input-group mb-3">
-            <span className="input-group-text">👤</span>
-            <input className="form-control" type="text" placeholder="username" />
-          </div>
-          <div className="input-group mb-3">
-            <span className="input-group-text">@</span>
-            <input className="form-control" type="email" placeholder="your@email.com" />
-          </div>
-          <div className="input-group mb-3">
-            <span className="input-group-text">🔒</span>
-            <input className="form-control" type="password" placeholder="password" />
-          </div>
-          <button className="btn btn-primary" type="submit">Login</button>
-          <button className="btn btn-secondary" type="submit">Sign Up</button>
-        </form>
+        {/* Render Unauthenticated state */}
+        {authState === AuthState.Unauthenticated && (
+          <Unauthenticated userName={userName} onLogin={handleLogin} />
+        )}
       </div>
     </main>
   );

@@ -1,36 +1,56 @@
-/* Ensure the entire document takes the full height of the viewport */
 html, body {
-  height: 100%; /* Make the root elements fill the viewport height */
+  height: 100%; /* Full height of the viewport */
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column; /* Stack header, main, and footer vertically */
 }
 
-/* Flexbox layout for body */
+/* Flexbox layout for the body container */
 .body {
   display: flex;
   flex-direction: column;
-  min-width: 375px; /* Optional, for mobile view */
-  height: 100%; /* Make sure the body container takes full viewport height */
 }
 
-/* Header stays at fixed height */
 header {
-  flex: 0 0 150px; 
+  height: 60px; /* Set the desired height for your header */
+  background-color: #36cebe;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Optional padding */
 }
 
 main {
-  flex: 1; 
+  flex: 1;  /* This ensures it takes up all available space */
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center; /* Vertically center content if needed */
+  padding: 1rem;
+  background: #f4f4f4;  /* Example background color */
+  flex-direction: column; /* Stack child elements vertically */
 }
 
-/* Footer styling */
+.container-fluid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align content to the top */
+  padding: 0;
+  margin: 0;
+}
+
+/* Footer should always stick to the bottom of the screen */
 footer {
-  flex-shrink: 0; /* Prevent shrinking */
-  width: 100%; /* Full width */
-  height: 2em;
+  flex-shrink: 0;  /* Prevent footer from shrinking */
+  width: 100%;
+  height: 2em;  /* Adjust footer height */
+  background-color: #36cebe;  /* Example footer background */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;  /* Center text inside the footer */
 }
 
 /* Styling for menu items */
@@ -55,23 +75,28 @@ menu .nav-item {
 }
 
 footer a {
-  float: right;
+  color: white;
+  text-decoration: none;
 }
 
-/* Styling for your div */
+#myTitle {
+  padding: 0.5em;
+  border-bottom: solid rgb(251, 204, 76) thin;
+}
+
 #myDiv {
-  display: flex;
-  flex-direction: column;
   background: #c9f0ed;
   color: #1e939a;
-  padding: 0;
-  border: 5px solid #36cebe;
-  width: auto;
-  margin-top: -15%;
-  margin-right: 5%;
-  margin-bottom: 6%;
-  height: auto;
+  padding: 1.5em;
+  border: 3px solid #36cebe;
+  width: 80%; /* Control width here */
+  margin-top: 1rem;  /* Space from top */
+  margin-bottom: 1rem; /* Space from bottom */
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -86,17 +111,6 @@ button {
   margin: 0.5em;
   width: 350px;
 }
-
-#myTitle {
-  position: relative;
-  color: #faeb1f;
-  padding: 0;
-}
-
-#myTitle h2 {
-  color: #fcffff;
-}
-
 
 .circle {
   background: #1e939a;
