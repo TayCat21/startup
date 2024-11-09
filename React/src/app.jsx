@@ -7,8 +7,13 @@ import { Goals } from './goals/goals';
 import { Ideas } from './ideas/ideas';
 import { Plan } from './plan/plan';
 import { Review } from './review/review';
+import { AuthState } from './login/authState';
 
 export default function App() {
+    const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+    const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+    const [authState, setAuthState] = React.useState(currentAuthState);
+
     return (
         <BrowserRouter>
             <div>
@@ -20,19 +25,40 @@ export default function App() {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="">Login</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="goals">MyGoals</NavLink>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="ideas">Brainstorm</NavLink>
-                            </li>
+                            {authState === AuthState.Authenticated && (
+                                <li className='nav-item'>
+                                    <NavLink className='nav-link' to='goals'>
+                                        MyGoals
+                                    </NavLink>
+                                </li>
+                            )}
+                            {authState === AuthState.Authenticated && (
+                                <li className='nav-item'>
+                                    <NavLink className='nav-link' to='ideas'>
+                                        Brainstorm
+                                    </NavLink>
+                                </li>
+                            )}
                         </menu>
                     </nav>
                 </header>
   
                 <Routes>
-                    <Route path='/' element={<Login />} exact />
-                    <Route path='/goals' element={<Goals />} />
+                    <Route
+                        path='/'
+                        element={
+                        <Login
+                            userName={userName}
+                            authState={authState}
+                            onAuthChange={(userName, authState) => {
+                            setAuthState(authState);
+                            setUserName(userName);
+                            }}
+                        />
+                        }
+                        exact
+                    />
+                    <Route path='/goals' element={<Goals userName={userName} />} />
                     <Route path='/ideas' element={<Ideas />} />
                     <Route path='/plan' element={<Plan />} />
                     <Route path='/review' element={<Review />} />
