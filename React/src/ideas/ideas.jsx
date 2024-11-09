@@ -41,9 +41,6 @@ export function Ideas() {
             </div>
             <br />
             <div>
-                <button id="stopTime" className="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">I'm Done</button>
-            </div>
-            <div>
                 <Modal />
             </div>
         </div>

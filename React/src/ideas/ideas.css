@@ -67,24 +67,6 @@ footer {
     top: 110px;
   }
 
-  .droptarget {
-    padding: 15px;
-    border: 3px dotted #1e939a;
-    color: #1e939a;
-    background: #d1e8e9;
-    border-radius: 50%;
-    width: 255px;
-    height: 155px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    padding: 5px;
-  }
-
-  #carrygoal {
-    border-color: #dd9428;
-  }
-
   @media (max-width: 540px) {
     aside {
       display: none;
