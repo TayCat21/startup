@@ -1,3 +1,21 @@
+/* Modal content box styling */
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 80%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1100;
+    display: none; /* Default is hidden */
+}
+
+/* Show modal when 'show' class is applied */
+.modal.show {
+    display: block; /* Override display:none */
+}
+
 /* Overlay styling */
 .modal-overlay {
     position: fixed;
@@ -5,26 +23,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark background */
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
-    justify-content: center;  /* Centers modal horizontally */
-    align-items: center;      /* Centers modal vertically */
-    z-index: 1000;            /* Ensures overlay appears above page content */
-  }
-  
-  /* Modal content box styling */
-  .modal {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 80%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    position: relative; /* Ensure it's positioned properly */
-    z-index: 1100;      /* Ensure modal is above the overlay */
-  }
-  
-  button {
-    padding: 8px 16px;
-    cursor: pointer;
-  }
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
