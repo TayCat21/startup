@@ -1,7 +1,7 @@
 const Event = {
     System: 'system',
-    End: 'End',
-    Start: 'Start',
+    End: 'End', //brainstorm end
+    Start: 'Start', //made new goal
     GoalCompleted: 'GoalCompleted',
   };
   

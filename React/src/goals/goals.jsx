@@ -1,41 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { Accordion, Button, Card } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
-import './goals.css'; // Your custom CSS
-import { Event, notifier } from './notifier';
-import { Players } from './Players'; // Assuming this is the component where you want to show events
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './goals.css';
+import { Event, notifier } from './notifier'; // Assuming these are implemented correctly
 
 export function Goals(props) {
   const userName = props.userName;
 
   const [notifications, setNotifications] = useState([]);
+  const [storedGoals, setStoredGoals] = useState([]); // Holds the goals to display
 
+  // Fetch goals from localStorage when the component mounts
   useEffect(() => {
-    // Add handler to listen for GameEvent broadcasts
-    const eventHandler = (event) => {
-      console.log('Received event in Goals:', event); // Log the event to see if it's working
-      let newNotifications = [event, ...notifications];
-      if (newNotifications.length > 10) {
-        newNotifications = newNotifications.slice(0, 10); // Keep only the latest 10 events
-      }
-      setNotifications(newNotifications); // Update state with the new notifications list
-    };
+    const goalsFromLocalStorage = JSON.parse(localStorage.getItem('goals')) || [];
+    setStoredGoals(goalsFromLocalStorage); // Set state with goals from localStorage
+  }, []); // Empty dependency array means this effect runs only once (on mount)
 
-    // Register event handler
-    notifier.addHandler(eventHandler);
-
-    // Cleanup: Remove handler when the component unmounts
-    return () => {
-      notifier.removeHandler(eventHandler);
-    };
-  }, [notifications]); // Update when notifications state changes
+  // Add goal to localStorage and update state
+  const addGoal = (newGoal) => {
+    const updatedGoals = [...storedGoals, newGoal];
+    setStoredGoals(updatedGoals); // Update the state
+    localStorage.setItem('goals', JSON.stringify(updatedGoals)); // Save to localStorage
+  };
 
   function handleGoalCompletion(goal) {
-    console.log("Completing Goal:", goal);  // Add this for debugging
+    console.log("Completing Goal:", goal);
     notifier.broadcastEvent(userName, Event.GoalCompleted, { goal });
   }
 
-  // Dynamically create event messages for notifications
+  // Create notifications based on events
   function createNotificationMessages() {
     return notifications.map((event, index) => {
       let message = 'unknown';
@@ -66,6 +59,7 @@ export function Goals(props) {
             <Accordion.Item eventKey="0">
               <Accordion.Header>New Goal</Accordion.Header>
               <Accordion.Body>
+                {/* Trigger the `Plan` page for new goal */}
                 <a className="dropdown-item" href="plan">Make New</a>
                 <a className="dropdown-item" href="ideas">Brainstorm Idea</a>
               </Accordion.Body>
@@ -76,33 +70,39 @@ export function Goals(props) {
         {/* Active Goals Section */}
         <div className="container" id="active">
           <h2>Active Goals</h2>
-          <button onClick={() => handleGoalCompletion('Goal 1')}>Complete Goal</button>
-          <Accordion>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>Goal 1</Accordion.Header>
-              <Accordion.Body>
-                <p className="goalDesc">Lorem ipsum...</p>
-                <p className="goalDate">mm/dd/yyyy</p>
-                <p className="reviewDate">review set for: mm/dd/yyyy</p>
-                <button className="myButton"><a href="/plan">Edit Goal</a></button>
-                <button className="myButton"><a href="/review">Review Goal</a></button>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
+          {storedGoals.filter(goal => !goal.completed).map((goal, index) => (
+            <Accordion key={index}>
+              <Accordion.Item eventKey={index.toString()}>
+                <Accordion.Header>{goal.name}</Accordion.Header>
+                <Accordion.Body>
+                  <p className="goalDesc">{goal.description}</p>
+                  <p className="goalDate">Start Date: {goal.goalDate} - End Date: {goal.endDate}</p>
+                  <p className="reviewDate">Review set for: {goal.reviewDate}</p>
+                  <button onClick={() => handleGoalCompletion(goal)} className="myButton">
+                    Complete Goal
+                  </button>
+                  <button className="myButton"><a href="/plan">Edit Goal</a></button>
+                  <button className="myButton"><a href="/review">Review Goal</a></button>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          ))}
         </div>
 
         {/* Past Goals Section */}
         <div className="container" id="past">
           <h2>Past Goals</h2>
-          <Accordion>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>Goal a</Accordion.Header>
-              <Accordion.Body>
-                <p className="goalDesc">Lorem ipsum...</p>
-                <p className="goalDate">mm/dd/yyyy</p>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
+          {storedGoals.filter(goal => goal.completed).map((goal, index) => (
+            <Accordion key={index}>
+              <Accordion.Item eventKey={index.toString()}>
+                <Accordion.Header>{goal.name}</Accordion.Header>
+                <Accordion.Body>
+                  <p className="goalDesc">{goal.description}</p>
+                  <p className="goalDate">Start Date: {goal.goalDate} - End Date: {goal.endDate}</p>
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
+          ))}
         </div>
       </div>
 
@@ -112,7 +112,7 @@ export function Goals(props) {
           <h1>Achievements Log</h1>
         </div>
         <div className="container-fluid text-center" id="notifications">
-          {createNotificationMessages()} {/* Render the dynamic event messages */}
+          {createNotificationMessages()} {/* Render dynamic event messages */}
         </div>
       </aside>
     </main>

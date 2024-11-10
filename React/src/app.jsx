@@ -11,71 +11,89 @@ import { AuthState } from './login/authState';
 
 export default function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
-    const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
-    const [authState, setAuthState] = React.useState(currentAuthState);
+    const [authState, setAuthState] = React.useState(userName ? AuthState.Authenticated : AuthState.Unauthenticated);
+    
+    // New state to manage goals
+    const [goals, setGoals] = React.useState([]);
+
+    // Function to add a new goal
+    const addGoal = (newGoal) => {
+        setGoals((prevGoals) => [...prevGoals, newGoal]);
+    };
 
     return (
         <BrowserRouter>
             <div>
                 <header className="container-fluid myEdit">
                     <nav className="navbar fixed-top navbar-dark">
-                        <img src="favicon.ico"/>
-                        <div className="navbar-brand" href="#">MyGoalSetter</div>
+                        <img src="favicon.ico" alt="logo" />
+                        <div className="navbar-brand">MyGoalSetter</div>
                         <menu className="navbar-nav">
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="">Login</NavLink>
                             </li>
                             {authState === AuthState.Authenticated && (
-                                <li className='nav-item'>
-                                    <NavLink className='nav-link' to='goals'>
-                                        MyGoals
-                                    </NavLink>
-                                </li>
-                            )}
-                            {authState === AuthState.Authenticated && (
-                                <li className='nav-item'>
-                                    <NavLink className='nav-link' to='ideas'>
-                                        Brainstorm
-                                    </NavLink>
-                                </li>
+                                <>
+                                    <li className='nav-item'>
+                                        <NavLink className='nav-link' to='goals'>MyGoals</NavLink>
+                                    </li>
+                                    <li className='nav-item'>
+                                        <NavLink className='nav-link' to='ideas'>Brainstorm</NavLink>
+                                    </li>
+                                </>
                             )}
                         </menu>
                     </nav>
                 </header>
-  
+
                 <Routes>
                     <Route
                         path='/'
                         element={
-                        <Login
-                            userName={userName}
-                            authState={authState}
-                            onAuthChange={(userName, authState) => {
-                            setAuthState(authState);
-                            setUserName(userName);
-                            }}
-                        />
+                            <Login
+                                userName={userName}
+                                authState={authState}
+                                onAuthChange={(userName, authState) => {
+                                    setAuthState(authState);
+                                    setUserName(userName);
+                                }}
+                            />
                         }
                         exact
                     />
-                    <Route path='/goals' element={<Goals userName={userName} />} />
-                    <Route path='/ideas' element={<Ideas />} />
-                    <Route path='/plan' element={<Plan />} />
-                    <Route path='/review' element={<Review />} />
-                    <Route path='*' element={<NotFound />} />
+                    <Route
+                        path='/goals'
+                        element={<Goals userName={userName} goals={goals} />}
+                    />
+                    <Route
+                        path='/ideas'
+                        element={<Ideas />}
+                    />
+                    <Route
+                        path='/plan'
+                        element={<Plan addGoal={addGoal} />}
+                    />
+                    <Route
+                        path='/review'
+                        element={<Review />}
+                    />
+                    <Route
+                        path='*'
+                        element={<NotFound />}
+                    />
                 </Routes>
-  
-            <   footer className="bg-dark text-white-50">
+
+                <footer className="bg-dark text-white-50">
                     <div className="container-fluid myEdit">
                         <span className="text-reset">Tayzia Slade</span>
-                        <a className= "text-reset" href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
+                        <a className="text-reset" href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
                     </div>
                 </footer>
             </div>
         </BrowserRouter>
     );
-  }
+}
 
-  function NotFound() {
+function NotFound() {
     return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
-  }
+}

@@ -1,119 +1,169 @@
 footer {
-    flex: 2 1;
-    position: static;
-    bottom: 0;
-    width: 100%;
-    height: 2em;
+  flex: 2 1;
+  position: static;
+  bottom: 0;
+  width: 100%;
+  height: 2em;
+}
+
+.return {
+  margin-top: 60px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.myBorder {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1;
+  flex-direction: row;
+  align-items: normal;
+  justify-content: normal;
+}
+
+.sideOne {
+  display: flex;
+  flex-basis: 60%;
+  flex-direction: column;
+}
+
+form {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border: transparent !important;
+  flex-basis: 100% !important;
+}
+
+aside {
+  padding-left: 100px;
+  padding-top: 20px;
+  margin-top: 20px; /* To create space between the main content and aside */
+}
+
+.one {
+  display: flex;
+  flex-direction: row;
+  border: 2px #1e939a solid;
+  background-color: #b2d8f1;
+  padding-left: 275px;
+  padding-right: 268px;
+}
+
+.two {
+  display: flex;
+  flex-direction: column;
+  border: 2px #1e939a solid;
+  background-color: #c7e1f1;
+  padding: 50px;
+  padding-left: 275px;
+  padding-right: 268px;
+}
+
+#SMART {
+  margin: 5px;
+}
+
+.Smart1 {
+  text-align: left;
+  color: #FF9D00;
+  font-size: 30px;
+  margin-top: 0px;
+  float: left;
+  clear: both;
+}
+
+.Smart2 {
+  text-align: left;
+  padding-top: 10px;
+  color: #269CEB;
+}
+
+.three {
+  display: flex;
+  flex-basis: 40%;
+  flex-direction: column;
+  border: 2px #1e939a solid;
+  background-color: #c7e1f1;
+  padding: 10px;
+}
+
+h2 {
+  color: #FF9D00;
+}
+
+#goalCarried {
+  padding: 15px;
+  border: 3px dotted #1e939a;
+  color: #1e939a;
+  background: #d1e8e9;
+  border-radius: 50%;
+  width: 255px;
+  height: 155px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+@media (max-width: 540px) {
+  header {
+    display: none;
   }
 
-  .return {
-    margin-top: 60px;
-    margin-bottom: 10px;
-    color: white;
-  }
-
-  .myBorder {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 1 1;
-    flex-direction: row;
-    align-items: normal;
-    justify-content: normal;
-    border: 2px #1e939a solid;
-  }
-
-  .sideOne {
-    display: flex;
-    flex-basis: 60%;
-    flex-direction: column;
-  }
-
-  form {
-    padding-left: 10px;
-    padding-bottom: 10px;
-  }
-
+  /* Adjust the aside section to be full width on smaller screens */
   aside {
-    padding-left: 100px;
-    padding-top: 20px;
-  }
-
-  .one {
-    display: flex;
-    flex-direction: row;
-    border: 2px #1e939a solid;
-    background-color: #b2d8f1;
-  }
-
-  .two {
-    display: flex;
-    flex-direction: column;
-    border: 2px #1e939a solid;
-    background-color: #c7e1f1;
-    padding: 10px;
-  }
-
-  #SMART {
-    margin: 5px;
-  }
-
-  .Smart1 {
-    text-align: left;
-    color: #FF9D00;
-    font-size: 30px;
-    margin-top: 0px;
-    float: left;
-    clear: both;
-  }
-  
-  .Smart2 {
-    text-align: left;
+    padding-left: 10px;
     padding-top: 10px;
-    color: #269CEB;
   }
-
-  .three {
-    display: flex;
-    flex-basis: 40%;
-    flex-direction: column;
-    border: 2px #1e939a solid;
-    background-color: #c7e1f1;
-    padding: 10px;
-  }
-
- h2 {
-    color: #FF9D00;
-  }
-  
-
-  #goalCarried {
-    padding: 15px;
-    border: 3px dotted #1e939a;
-    color: #1e939a;
-    background: #d1e8e9;
-    border-radius: 50%;
-    width: 255px;
-    height: 155px;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    padding: 5px;
-  }
-
-  @media (max-width: 540px) {
-    header {
-      display: none;
-    }
 }
 
 @media (max-width: 774px) {
-    .two {
-      display: none;
-    }
-    .sideOne {
-        flex-basis: 100%;
-    }
-    .three {
-       flex-basis: 100%;
-    }
+  .two {
+    display: none;
+  }
+
+  .sideOne {
+    flex-basis: 100%;
+  }
+
+  .three {
+    flex-basis: 100%;
+  }
+
+  /* Make the aside more responsive, and stack content appropriately */
+  aside {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+  /* Ensure that the notifications section in aside adjusts well */
+  #notifications {
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+
+  .event {
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* Adjust layout for mid-sized screens */
+  .sideOne {
+    flex-basis: 100%;
+  }
+
+  .three {
+    flex-basis: 100%;
+  }
+
+  /* Adjust notification font size for better readability */
+  .event {
+    font-size: 14px;
+  }
 }
