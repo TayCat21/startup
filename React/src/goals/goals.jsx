@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Accordion, Button, Card } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './goals.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
+import './goals.css'; // Your custom CSS
+import './players.css';
 import { Event, notifier } from './notifier'; // Assuming these are implemented correctly
 
 export function Goals(props) {
@@ -13,14 +14,32 @@ export function Goals(props) {
   // Fetch goals from localStorage when the component mounts
   useEffect(() => {
     const goalsFromLocalStorage = JSON.parse(localStorage.getItem('goals')) || [];
-    setStoredGoals(goalsFromLocalStorage); // Set state with goals from localStorage
-  }, []); // Empty dependency array means this effect runs only once (on mount)
+    setStoredGoals(goalsFromLocalStorage);
 
-  // Add goal to localStorage and update state
+    // Add handler to listen for GameEvent broadcasts
+    const eventHandler = (event) => {
+      console.log('Received event in Goals:', event);
+      let newNotifications = [event, ...notifications];
+      if (newNotifications.length > 10) {
+        newNotifications = newNotifications.slice(0, 10);
+      }
+      setNotifications(newNotifications); // Update state with the new notifications list
+    };
+
+    // Register event handler
+    notifier.addHandler(eventHandler);
+
+    // Cleanup: Remove handler when the component unmounts
+    return () => {
+      notifier.removeHandler(eventHandler);
+    };
+  }, [notifications]); // This will trigger when notifications change
+
+  // Add goal to localStorage and update the state
   const addGoal = (newGoal) => {
     const updatedGoals = [...storedGoals, newGoal];
-    setStoredGoals(updatedGoals); // Update the state
-    localStorage.setItem('goals', JSON.stringify(updatedGoals)); // Save to localStorage
+    setStoredGoals(updatedGoals);
+    localStorage.setItem('goals', JSON.stringify(updatedGoals));
   };
 
   function handleGoalCompletion(goal) {
@@ -28,7 +47,6 @@ export function Goals(props) {
     notifier.broadcastEvent(userName, Event.GoalCompleted, { goal });
   }
 
-  // Create notifications based on events
   function createNotificationMessages() {
     return notifications.map((event, index) => {
       let message = 'unknown';
@@ -59,7 +77,6 @@ export function Goals(props) {
             <Accordion.Item eventKey="0">
               <Accordion.Header>New Goal</Accordion.Header>
               <Accordion.Body>
-                {/* Trigger the `Plan` page for new goal */}
                 <a className="dropdown-item" href="plan">Make New</a>
                 <a className="dropdown-item" href="ideas">Brainstorm Idea</a>
               </Accordion.Body>
@@ -76,7 +93,7 @@ export function Goals(props) {
                 <Accordion.Header>{goal.name}</Accordion.Header>
                 <Accordion.Body>
                   <p className="goalDesc">{goal.description}</p>
-                  <p className="goalDate">Start Date: {goal.goalDate} - End Date: {goal.endDate}</p>
+                  <p className="goalDate">Start Date: {goal.startDate} - End Date: {goal.endDate}</p>
                   <p className="reviewDate">Review set for: {goal.reviewDate}</p>
                   <button onClick={() => handleGoalCompletion(goal)} className="myButton">
                     Complete Goal
@@ -86,8 +103,25 @@ export function Goals(props) {
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
+            
           ))}
-        </div>
+
+          <Accordion>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Example Goal</Accordion.Header>
+              <Accordion.Body>
+                <p className="goalDesc">goal description...</p>
+                <p className="goalDate">mm/dd/yyyy</p>
+                <p className="reviewDate">Review set for: mm/dd/yyyy</p>
+                <button onClick={() => handleGoalCompletion('Goal 1')} className="myButton">
+                    Complete Goal
+                  </button>
+                  <button className="myButton"><a href="/plan">Edit Goal</a></button>
+                  <button className="myButton"><a href="/review">Review Goal</a></button>
+                </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+          </div>
 
         {/* Past Goals Section */}
         <div className="container" id="past">
@@ -98,7 +132,7 @@ export function Goals(props) {
                 <Accordion.Header>{goal.name}</Accordion.Header>
                 <Accordion.Body>
                   <p className="goalDesc">{goal.description}</p>
-                  <p className="goalDate">Start Date: {goal.goalDate} - End Date: {goal.endDate}</p>
+                  <p className="goalDate">Start Date: {goal.startDate} - End Date: {goal.endDate}</p>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
@@ -112,7 +146,7 @@ export function Goals(props) {
           <h1>Achievements Log</h1>
         </div>
         <div className="container-fluid text-center" id="notifications">
-          {createNotificationMessages()} {/* Render dynamic event messages */}
+          {createNotificationMessages()} {/* Render the dynamic event messages */}
         </div>
       </aside>
     </main>

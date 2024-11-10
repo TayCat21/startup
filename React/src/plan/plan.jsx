@@ -196,6 +196,7 @@ export function Plan({ addGoal }) {
                             value={reviewDate}
                             onChange={(e) => setReviewDate(e.target.value)}
                         /><br /><br />
+                        <button><a href="/goals">Return to MyGoals</a></button>
                        </form>
                 </div>
             </section>

@@ -44,7 +44,6 @@ const Modal = () => {
                 <div className="modal-overlay">
                     <div className="modal" style={{ display: 'block' }}>
                         <button id="popButton" onClick={toggleModal}>Close</button>
-                        notifier.broadcastEvent(userName, Event.End, {});
                         <h2>Great Job!</h2>
                         <p>Congratulations! You just finished a Brainstorming session!</p>
                         <p>Now that we are done,</p>
