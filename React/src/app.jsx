@@ -17,7 +17,7 @@ export default function App() {
     return (
         <BrowserRouter>
             <div>
-                <header className="container-fluid">
+                <header className="container-fluid myEdit">
                     <nav className="navbar fixed-top navbar-dark">
                         <img src="favicon.ico"/>
                         <div className="navbar-brand" href="#">MyGoalSetter</div>
@@ -66,7 +66,7 @@ export default function App() {
                 </Routes>
   
             <   footer className="bg-dark text-white-50">
-                    <div className="container-fluid">
+                    <div className="container-fluid myEdit">
                         <span className="text-reset">Tayzia Slade</span>
                         <a className= "text-reset" href="https://github.com/TayCat21/startup/tree/main">MyGitHub</a>
                     </div>

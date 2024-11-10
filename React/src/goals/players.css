@@ -1,0 +1,49 @@
+/* Container for the players list */
+.players {
+    flex: 1;
+    width: 100%;
+    padding: 0.5em;
+}
+
+/* The player name style */
+.player-name {
+    color: rgb(118, 190, 210);
+    font-weight: bold;       
+    margin-right: 0.5em;    
+}
+
+/* The messages container */
+#player-messages {
+    padding-top: 0.25em;
+    opacity: 0.9;   
+}
+
+/* General event style */
+
+.event .player-name {
+    color: rgb(118, 190, 210); 
+    font-weight: bold;
+}
+
+.system-event {
+    color: yellow; 
+    margin: 0 0.25em;
+}
+
+/*different text color for each event type */
+.event.Start {
+    color: rgb(0, 123, 255);
+}
+
+.event.End {
+    color: rgb(255, 87, 34); 
+}
+
+.event.GoalCompleted {
+    color: rgb(40, 167, 69);  
+}
+
+.event {
+    color: gray;  
+    margin-bottom: 0.25em;   
+}

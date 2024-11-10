@@ -6,7 +6,7 @@ footer {
     height: 2em;
   }
 
-  .container {
+  #goalBlock {
     flex: 1;
     flex-direction: column;
     margin: 10px;
@@ -42,32 +42,11 @@ footer {
   }
 
   aside {
-    position: absolute;
+    position: relative;
     top: 20%;
     right: 8%;
     flex-basis: 33.33%;;
     text-align: center;
-  }
-
-  .username {
-    color: #faeb1f;
-  }
-
-  #player-messages {
-    padding-top: 0.25em;
-    opacity: 0.7;
-  }
-  
-  .event {
-    color: rgb(69, 69, 69);
-  }
-
-  .specialEvent {
-    color:  rgb(221, 148, 40);
-  }
-
-  .system-event {
-    color: #e06764;
   }
 
   #notifications {

@@ -33,7 +33,7 @@ export function Login({ onAuthChange }) {
   };
 
   return (
-    <main className="container-fluid text-center">
+    <main className="container-fluid text-center myEdit">
       <div id="myDiv">
         {/* Display the main title only if auth state is not Unknown */}
         {authState !== AuthState.Unknown && <h1 id="myTitle">Welcome to MyGoalSetter</h1>}

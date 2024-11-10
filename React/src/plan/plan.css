@@ -12,7 +12,7 @@ footer {
     color: white;
   }
 
-  main {
+  .myBorder {
     display: flex;
     flex-wrap: wrap;
     flex: 1 1;

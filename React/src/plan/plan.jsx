@@ -3,7 +3,7 @@ import './plan.css';
 
 export function Plan() {
     return (
-    <main>
+    <main class="myBorder">
         <container className="sideOne">
             <section className="one">
                 <form className="form-group">
