@@ -39,7 +39,7 @@ I will use each of these following technologies in my project.
 - **DB/Login** - Registers login, and secures user goals and credentials
 - **WebSocket** - Displays accomplished goals in the achievements log 
 
-## HTML deliverable 🚀
+## HTML deliverable 🏠
 Here is the required information for my Startup HTML
 
 I created a foundation for my project, leaving connections to let CSS, JavaScript, and Websockets to build off of it.
@@ -55,7 +55,7 @@ To be more Specific:
 
 *I also have comments within my code to help explain functions*
 
-## CSS deliverable 🚀
+## CSS deliverable 🎨
 Here is the required information for my Startup CSS
 
 I took the time these last couple weeks to properly style the website to make it more appealing and understandable for the User.
@@ -70,3 +70,19 @@ Including the following elements:
 - [ ] **Application Images** - Other than the favicon used on the navbar on each page, I still don't have any images for my site.
 
 *I also have comments within my code to help explain functions that don't appear due to lack of javascript*
+
+## React deliverable 🛰️
+Here is the information required for my React Startup
+
+I used both JavaScript and React to create a nicer flow and functionallity throughout my website. There is also some placeholders for the use of a database and websockets later on.
+
+This version includes the following:
+
+- [x] **Bundled and Transpiled using Vite**
+- [x] **Components** - Login, MyGoals and Idea-generater have mock-ups for lack of database and Websockets, but make use of local storage. 
+- [x] **Login** - Brings you to MyGoals after logging in the user.
+- [x] **Database** - User Goals and login authentication will be stored in the database. These are using local storage to function in the meantime.
+- [x] **Websocket** - There is a setInterval function mimicking its use, but once implemented users will be able to recieve those instead.
+- [x] **Application Logic** - Goal names and descriptions change with user selections. 
+- [x] **Router** - There is routing through each of the pages for a fluid flow mainly in and out of the MyGoals page.
+- [x] **Hooks** - UseState hooks are used for the storing & using of goals, detecting & publishing achievements, user authentication, and a confetti popup.
