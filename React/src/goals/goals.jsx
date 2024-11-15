@@ -1,72 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { Accordion, Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
-import './goals.css'; // Your custom CSS
-import './players.css';
-import { Event, notifier } from './notifier'; // Assuming these are implemented correctly
+import './goals.css';
+import { Players } from './Players';
+import { notifier } from './notifier';
 
-export function Goals(props) {
-  const userName = props.userName;
+export function Goals() {
+  const [storedGoals, setStoredGoals] = useState([
+    { 
+      name: 'Example Goal 1', 
+      description: 'Description of goal 1', 
+      startDate: '01/01/2024', 
+      endDate: '01/10/2024', 
+      reviewDate: '01/05/2024', 
+      completed: false 
+    },
+    { 
+      name: 'Example Goal 2', 
+      description: 'Description of goal 2', 
+      startDate: '02/01/2024', 
+      endDate: '02/10/2024', 
+      reviewDate: '02/05/2024', 
+      completed: true 
+    }
+  ]);
 
-  const [notifications, setNotifications] = useState([]);
-  const [storedGoals, setStoredGoals] = useState([]); // Holds the goals to display
+  const [userName, setUserName] = useState('');
+  const [messages, setMessages] = useState([]);
 
-  // Fetch goals from localStorage when the component mounts
   useEffect(() => {
-    const goalsFromLocalStorage = JSON.parse(localStorage.getItem('goals')) || [];
-    setStoredGoals(goalsFromLocalStorage);
-
-    // Add handler to listen for GameEvent broadcasts
-    const eventHandler = (event) => {
-      console.log('Received event in Goals:', event);
-      let newNotifications = [event, ...notifications];
-      if (newNotifications.length > 10) {
-        newNotifications = newNotifications.slice(0, 10);
+    // Handler to listen for events and update messages
+    const handleEvent = (event) => {
+      const newMessages = notifier.getMessages();
+      if (newMessages.length > 10) {
+        newMessages = newMessages.slice(1, 10);
       }
-      setNotifications(newNotifications); // Update state with the new notifications list
+      setMessages(newMessages);
     };
 
-    // Register event handler
-    notifier.addHandler(eventHandler);
+    notifier.addHandler(handleEvent);
 
-    // Cleanup: Remove handler when the component unmounts
     return () => {
-      notifier.removeHandler(eventHandler);
+      notifier.removeHandler(handleEvent);
     };
-  }, [notifications]); // This will trigger when notifications change
-
-  // Add goal to localStorage and update the state
-  const addGoal = (newGoal) => {
-    const updatedGoals = [...storedGoals, newGoal];
-    setStoredGoals(updatedGoals);
-    localStorage.setItem('goals', JSON.stringify(updatedGoals));
-  };
-
-  function handleGoalCompletion(goal) {
-    console.log("Completing Goal:", goal);
-    notifier.broadcastEvent(userName, Event.GoalCompleted, { goal });
-  }
-
-  function createNotificationMessages() {
-    return notifications.map((event, index) => {
-      let message = 'unknown';
-      if (event.type === Event.End) {
-        message = `${event.from} finished a Brainstorm`;
-      } else if (event.type === Event.Start) {
-        message = `${event.from} made a new goal`;
-      } else if (event.type === Event.System) {
-        message = event.value.msg;
-      } else if (event.type === Event.GoalCompleted) {
-        message = `${event.from} achieved their goal!`;
-      }
-
-      return (
-        <div key={index} className={`event ${event.type}`}>
-          <span className="system-event">{event.from.split('@')[0]}</span> {message}
-        </div>
-      );
-    });
-  }
+  }, []);
 
   return (
     <main>
@@ -138,17 +115,9 @@ export function Goals(props) {
             </Accordion>
           ))}
         </div>
-      </div>
 
-      {/* Aside for achievements/logs */}
-      <aside>
-        <div className="container-fluid text-center shoutouts">
-          <h1>Achievements Log</h1>
-        </div>
-        <div className="container-fluid text-center" id="notifications">
-          {createNotificationMessages()} {/* Render the dynamic event messages */}
-        </div>
-      </aside>
+        <Players userName={userName} storedGoals={storedGoals} messages={messages} />
+      </div>
     </main>
   );
 }

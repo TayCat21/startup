@@ -46,7 +46,22 @@ const Event = {
           });
         });
       }
+
+    getMessages() {
+      return this.events.map((event) => {
+        switch (event.type) {
+          case Event.Start:
+            return '${event.from} started a new goal';
+          case Event.GoalCompleted:
+            return '${event.from} completed their goal!';
+          case Event.End:
+            return '${event.from} finished a Brainstorm';
+          default:
+            return '${event.from} triggered an unknown event.';
+        }
+      });
     }
+  }
   
   const notifier = new EventNotifier();
   export { Event, notifier };
