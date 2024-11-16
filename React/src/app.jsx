@@ -9,12 +9,11 @@ import { Plan } from './plan/plan';
 import { Review } from './review/review';
 import { AuthState } from './login/authState';
 
-export default function App() {
+function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
     const [authState, setAuthState] = React.useState(userName ? AuthState.Authenticated : AuthState.Unauthenticated);
-
     const [goals, setGoals] = React.useState([]);
-
+   
     const addGoal = (newGoal) => {
         setGoals((prevGoals) => [...prevGoals, newGoal]);
     };
@@ -95,3 +94,5 @@ export default function App() {
 function NotFound() {
     return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
 }
+
+export default App;

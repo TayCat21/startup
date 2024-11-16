@@ -7,15 +7,21 @@ export function Authenticated(props) {
   const navigate = useNavigate();
 
   function logout() {
-    localStorage.removeItem('userName');
-    props.onLogout();
+    fetch(`/api/auth/logout`, {
+      method: 'delete',
+    })
+      .catch(() => {
+        // Logout failed. Assuming offline
+      })
+      .finally(() => {
+        localStorage.removeItem('userName');
+        props.onLogout();
+      });
   }
 
   return (
     <div className="authenticated-container">
       <div className="playerName">{props.userName}</div>
-
-      <div className="authenticated-buttons">
         <Button
           variant="primary"
           className="primary-btn"
@@ -30,7 +36,6 @@ export function Authenticated(props) {
         >
           Logout
         </Button>
-      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { MessageDialog } from './messageDialog';
+import { MessageDialog } from './MessageDialog';
 import './unauthenticated.css';
 
 export function Unauthenticated(props) {
@@ -9,65 +9,62 @@ export function Unauthenticated(props) {
   const [displayError, setDisplayError] = React.useState(null);
 
   async function loginUser() {
-    if (userName && password) {
-      localStorage.setItem('userName', userName);
-      props.onLogin(userName);
-    } else {
-      setDisplayError('Please provide both username and password.');
-    }
+    loginOrCreate(`/api/auth/login`);
   }
 
   async function createUser() {
-    if (userName && password) {
+    loginOrCreate(`/api/auth/create`);
+  }
+
+  async function loginOrCreate(endpoint) {
+    const response = await fetch(endpoint, {
+      method: 'post',
+      body: JSON.stringify({ email: userName, password: password }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response?.status === 200) {
       localStorage.setItem('userName', userName);
       props.onLogin(userName);
     } else {
-      setDisplayError('Please provide both username and password.');
+      const body = await response.json();
+      setDisplayError(`⚠ Error: ${body.msg}`); // Sets the error message
     }
   }
 
   return (
-    <div className="unauthenticated-container">
-      <div className="input-group">
-        <span className="input-group-text">👤</span>
-        <input
-          className="form-control"
-          type="text"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-          placeholder="your@email.com"
-        />
-      </div>
-      <div className="input-group">
-        <span className="input-group-text">🔒</span>
-        <input
-          className="form-control"
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="password"
-        />
-      </div>
-      <div className="unauthenticated-buttons">
-        <Button
-          variant="primary"
-          className="primary-btn"
-          onClick={loginUser}
-          disabled={!userName || !password}
-        >
+    <>
+      <div>
+        <div className='input-group mb-3'>
+          <span className='input-group-text'>👤</span>
+          <input
+            className='form-control'
+            type='text'
+            value={userName}
+            onChange={(e) => setUserName(e.target.value)}
+            placeholder='your@email.com'
+          />
+        </div>
+        <div className='input-group mb-3'>
+          <span className='input-group-text'>🔒</span>
+          <input
+            className='form-control'
+            type='password'
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder='password'
+          />
+        </div>
+        <Button variant='primary' onClick={() => loginUser()} disabled={!userName || !password}>
           Login
         </Button>
-        <Button
-          variant="secondary"
-          className="secondary-btn"
-          onClick={createUser}
-          disabled={!userName || !password}
-        >
-          Create Account
+        <Button variant='secondary' onClick={() => createUser()} disabled={!userName || !password}>
+          Create
         </Button>
+        
+        {/* Pass the error message to MessageDialog */}
+        <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
       </div>
-
-      {/* Error Message */}
-      <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
-    </div>
+    </>
   );
 }
