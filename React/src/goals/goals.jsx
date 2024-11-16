@@ -5,7 +5,7 @@ import './goals.css';
 import { Players } from './Players';
 import { notifier } from './notifier';
 
-export function Goals() {
+export function Goals({ userName, goals }) {
   const [storedGoals, setStoredGoals] = useState([
     { 
       name: 'Example Goal 1', 
@@ -25,7 +25,6 @@ export function Goals() {
     }
   ]);
 
-  const [userName, setUserName] = useState('');
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {

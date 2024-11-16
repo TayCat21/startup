@@ -12,11 +12,9 @@ import { AuthState } from './login/authState';
 export default function App() {
     const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
     const [authState, setAuthState] = React.useState(userName ? AuthState.Authenticated : AuthState.Unauthenticated);
-    
-    // New state to manage goals
+
     const [goals, setGoals] = React.useState([]);
 
-    // Function to add a new goal
     const addGoal = (newGoal) => {
         setGoals((prevGoals) => [...prevGoals, newGoal]);
     };
