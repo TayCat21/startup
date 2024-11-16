@@ -51,13 +51,13 @@ const Event = {
       return this.events.map((event) => {
         switch (event.type) {
           case Event.Start:
-            return '${event.from} started a new goal';
+            return `${event.from} started a new goal`;
           case Event.GoalCompleted:
-            return '${event.from} completed their goal!';
+            return `${event.from} completed their goal!`;
           case Event.End:
-            return '${event.from} finished a Brainstorm';
+            return `${event.from} finished a Brainstorm`;
           default:
-            return '${event.from} triggered an unknown event.';
+            return `${event.from} triggered an unknown event.`;
         }
       });
     }
