@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './plan.css';
 
 export function Plan({ addGoal }) {
+    const [myQuote, setQuote] = React.useState('Loading...');
+  const [quoteAuthor, setQuoteAuthor] = React.useState('unknown');
+
   const [goalName, setGoalName] = useState('');
   const [goalDesc, setGoalDesc] = useState('');
   const [goalDate, setGoalDate] = useState('');
@@ -49,6 +52,24 @@ export function Plan({ addGoal }) {
     setShortTerm('');
   };
 
+  React.useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * 21);
+    fetch('https://gomezmig03.github.io/MotivationalAPI/en.json')
+    .then(response => {
+        if (!response.ok) {
+          throw new Error('Unable to retrieve data from the server.');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const phrase = data[randomIndex].phrase;
+        const Author = data[randomIndex].author;
+        setQuote(phrase);
+        setQuoteAuthor(Author);
+      })
+      .catch();
+    }, []);
+
   return (
     <main className="myBorder">
       <div className="sideOne">
@@ -75,6 +96,8 @@ export function Plan({ addGoal }) {
               onChange={(e) => setGoalDesc(e.target.value)}
             /><br /><br />
             <input className="btn btn-secondary" type="submit" value="Submit" />
+            <br /><br />
+            <button><a href="/goals">Return to MyGoals</a></button>
             </form>
               </section>
       
@@ -195,9 +218,13 @@ export function Plan({ addGoal }) {
                             name="reviewDate"
                             value={reviewDate}
                             onChange={(e) => setReviewDate(e.target.value)}
-                        /><br /><br />
-                        <button><a href="/goals">Return to MyGoals</a></button>
+                        />
                        </form>
+                </div>
+                
+                <div className='quote-box bg-light text-dark'>
+                    <p className='quote'>{myQuote}</p>
+                    <p className='author'>{quoteAuthor}</p>
                 </div>
             </section>
         </main>
