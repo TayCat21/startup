@@ -3,39 +3,32 @@ import './plan.css';
 
 export function Plan({ addGoal }) {
     const [myQuote, setQuote] = React.useState('Loading...');
-  const [quoteAuthor, setQuoteAuthor] = React.useState('unknown');
+    const [quoteAuthor, setQuoteAuthor] = React.useState('unknown');
 
-  const [goalName, setGoalName] = useState('');
-  const [goalDesc, setGoalDesc] = useState('');
-  const [goalDate, setGoalDate] = useState('');
-  const [reviewDate, setReviewDate] = useState('');
-  const [specific, setSpecific] = useState('');
-  const [measurable, setMeasurable] = useState('');
-  const [achievable, setAchievable] = useState('');
-  const [relevant, setRelevant] = useState('');
-  const [timeBound, setTimeBound] = useState('');
-  const [longTerm, setLongTerm] = useState('');
-  const [shortTerm, setShortTerm] = useState('');
+    const [goalName, setGoalName] = useState('');
+    const [goalDesc, setGoalDesc] = useState('');
+    const [goalDate, setGoalDate] = useState('');
+    const [reviewDate, setReviewDate] = useState('');
 
-  const handleSubmit = (e) => {
+    const [specific, setSpecific] = useState('');
+    const [measurable, setMeasurable] = useState('');
+    const [achievable, setAchievable] = useState('');
+    const [relevant, setRelevant] = useState('');
+    const [timeBound, setTimeBound] = useState('');
+    const [longTerm, setLongTerm] = useState('');
+    const [shortTerm, setShortTerm] = useState('');
+
+    const handleSubmit = (e) => {
     e.preventDefault();
 
     const newGoal = {
-      name: goalName,
-      description: goalDesc,
-      goalDate: goalDate,
-      reviewDate: reviewDate,
-      specific: specific,
-      measurable: measurable,
-      achievable: achievable,
-      relevant: relevant,
-      timeBound: timeBound,
-      longTerm: longTerm,
-      shortTerm: shortTerm,
-      completed: false, // Initially mark the goal as incomplete
-    };
+        name: goalName,
+        description: goalDesc,
+        goalDate: goalDate,
+        reviewDate: reviewDate,
+        completed: false, // Initially mark the goal as incomplete
+      };
 
-    // Add the new goal to the parent component's state via addGoal
     addGoal(newGoal);
 
     // Clear the form

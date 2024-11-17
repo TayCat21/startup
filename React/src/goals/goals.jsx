@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
 import './goals.css';
 import { Players } from './Players';
 import { Event, notifier } from './notifier';
+import { Plan } from '../plan/plan';
 
 export function Goals({ userName, goals }) {
   const [storedGoals, setStoredGoals] = useState([
@@ -54,6 +55,11 @@ export function Goals({ userName, goals }) {
 
     // Send GoalCompleted event
     notifier.broadcastEvent(userName, Event.GoalCompleted);
+  };
+
+  // Function to add a new goal
+  const addGoal = (newGoal) => {
+    setStoredGoals(prevGoals => [...prevGoals, newGoal]);
   };
 
   return (
