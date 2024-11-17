@@ -3,7 +3,7 @@ import { Accordion, Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
 import './goals.css';
 import { Players } from './Players';
-import { notifier } from './notifier';
+import { Event, notifier } from './notifier';
 
 export function Goals({ userName, goals }) {
   const [storedGoals, setStoredGoals] = useState([
@@ -27,7 +27,7 @@ export function Goals({ userName, goals }) {
 
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     // Handler to listen for events and update messages
     const handleEvent = (event) => {
       const newMessages = notifier.getMessages();
@@ -43,6 +43,18 @@ export function Goals({ userName, goals }) {
       notifier.removeHandler(handleEvent);
     };
   }, []);
+
+  // Handle Goal Completion
+  const handleGoalCompletion = (goal) => {
+    const updatedGoals = storedGoals.map((g) => 
+      g.name === goal.name ? { ...g, completed: true } : g
+    );
+    
+    setStoredGoals(updatedGoals);
+
+    // Send GoalCompleted event
+    notifier.broadcastEvent(userName, Event.GoalCompleted);
+  };
 
   return (
     <main>
@@ -81,22 +93,6 @@ export function Goals({ userName, goals }) {
             </Accordion>
             
           ))}
-
-          <Accordion>
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>Example Goal</Accordion.Header>
-              <Accordion.Body>
-                <p className="goalDesc">goal description...</p>
-                <p className="goalDate">mm/dd/yyyy</p>
-                <p className="reviewDate">Review set for: mm/dd/yyyy</p>
-                <button onClick={() => handleGoalCompletion('Goal 1')} className="myButton">
-                    Complete Goal
-                  </button>
-                  <button className="myButton"><a href="/plan">Edit Goal</a></button>
-                  <button className="myButton"><a href="/review">Review Goal</a></button>
-                </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
           </div>
 
         {/* Past Goals Section */}
