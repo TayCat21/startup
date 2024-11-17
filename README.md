@@ -86,3 +86,15 @@ This version includes the following:
 - [x] **Application Logic** - Goal names and descriptions change with user selections. 
 - [x] **Router** - There is routing through each of the pages for a fluid flow mainly in and out of the MyGoals page.
 - [x] **Hooks** - UseState hooks are used for the storing & using of goals, detecting & publishing achievements, user authentication, and a confetti popup.
+
+## Service 🛠️
+This is the information required for my Startup Service
+
+I used some backend endpoints to handle user authentication and also a little bit for goalsetting (setting up for when I have a database). I also used a 3rd party API quote service for this deliverable.
+
+- [x] **Node.js/Express HTTP service**
+- [x] **Static middleware for frontend**
+- [x] **Calls to third party endpoints** - I found a free API that delivers modivational quotes for my goalsetting page.
+- [x] **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for goals.
+- [x] **Frontend calls service endpoints** - I used fetch functions to call these services.
+
