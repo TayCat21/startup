@@ -31,7 +31,7 @@ export function Goals({ userName, goals }) {
   React.useEffect(() => {
     // Handler to listen for events and update messages
     const handleEvent = (event) => {
-      const newMessages = notifier.getMessages();
+      let newMessages = notifier.getMessages();
       if (newMessages.length > 10) {
         newMessages = newMessages.slice(1, 10);
       }

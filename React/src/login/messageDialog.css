@@ -1,0 +1,35 @@
+/* Ensure modal is fixed and outside the normal document flow */
+.modal {
+    position: fixed; /* This removes it from the document flow */
+    top: 50%; /* Centers vertically */
+    left: 50%; /* Centers horizontally */
+    transform: translate(-50%, -50%); /* Centers perfectly */
+    z-index: 1050; /* Ensures modal is above other content */
+    width: 100%;
+    max-width: 500px; /* Max width of modal */
+    margin: 0;
+    display: none; /* Initially hidden */
+  }
+  
+  /* When the modal is shown, apply 'display: block' */
+  .modal.show {
+    display: block;
+  }
+  
+  /* Modal's body (content inside the modal) */
+  .modal-body {
+    background-color: white;
+    padding: 1rem;
+  }
+  
+  /* Modal backdrop (optional) */
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+  }
+  
