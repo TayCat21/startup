@@ -4,29 +4,31 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
 import './goals.css';
 import { Players } from './Players';
 import { Event, notifier } from './notifier';
-import { Plan } from '../plan/plan';
 
 export function Goals({ userName, goals }) {
-  const [storedGoals, setStoredGoals] = useState([
-    { 
-      name: 'Example Goal 1', 
-      description: 'Description of goal 1', 
-      startDate: '01/01/2024', 
-      endDate: '01/10/2024', 
-      reviewDate: '01/05/2024', 
-      completed: false 
-    },
-    { 
-      name: 'Example Goal 2', 
-      description: 'Description of goal 2', 
-      startDate: '02/01/2024', 
-      endDate: '02/10/2024', 
-      reviewDate: '02/05/2024', 
-      completed: true 
-    }
-  ]);
-
+  const [storedGoals, setStoredGoals] = useState([]);  // Initially empty array for goals
   const [messages, setMessages] = useState([]);
+
+  // Fetch goals from the backend when component mounts
+  React.useEffect(() => {
+    const fetchGoals = async () => {
+      try {
+        const response = await fetch(`/api/goals?userName=${userName}`);
+        if (response.ok) {
+          const fetchedGoals = await response.json();
+          setStoredGoals(fetchedGoals);  // Set the fetched goals into state
+        } else {
+          console.error('Failed to fetch goals');
+        }
+      } catch (error) {
+        console.error('Error fetching goals:', error);
+      }
+    };
+  
+    if (userName) {
+      fetchGoals();  // Fetch goals for the logged-in user
+    }
+  }, [userName]);  // Dependency array ensures this runs when `userName` changes
 
   React.useEffect(() => {
     // Handler to listen for events and update messages
@@ -55,11 +57,6 @@ export function Goals({ userName, goals }) {
 
     // Send GoalCompleted event
     notifier.broadcastEvent(userName, Event.GoalCompleted);
-  };
-
-  // Function to add a new goal
-  const addGoal = (newGoal) => {
-    setStoredGoals(prevGoals => [...prevGoals, newGoal]);
   };
 
   return (

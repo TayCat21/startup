@@ -7,7 +7,6 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url);
 const dbStart = client.db(config.dbName);
 const userCollection = dbStart.collection('users');
-const goalCollection = dbStart.collection('goal');
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -41,13 +40,16 @@ async function createUser(email, password) {
   return user;
 }
 
-async function addGoal(goal) {
-  return goalCollection.insertOne(goal);
-}
+async function addGoal(userName, goal) {
+    const userGoalsCollection = dbStart.collection(userName);
+    console.log('Inserting goal into collection:', userGoalsCollection.collectionName);
+    return userGoalsCollection.insertOne(goal);  // Insert the goal into the user's collection
+  }
 
-function getGoals() {
-  // get Goals for myGoals page
-}
+  async function getGoals(userName) {
+    const userGoalsCollection = dbStart.collection(userName); 
+    return userGoalsCollection.find().toArray();  // Fetch all goals for the given user
+  }
 
 module.exports = {
   getUser,

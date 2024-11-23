@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Event, notifier } from '../goals/notifier';
 import './plan.css';
 
-export function Plan({ addGoal }) {
+export function Plan({ userName, addGoal }) {
     const [myQuote, setQuote] = React.useState('Loading...');
     const [quoteAuthor, setQuoteAuthor] = React.useState('unknown');
 
@@ -10,40 +11,50 @@ export function Plan({ addGoal }) {
     const [goalDate, setGoalDate] = useState('');
     const [reviewDate, setReviewDate] = useState('');
 
-    const [specific, setSpecific] = useState('');
-    const [measurable, setMeasurable] = useState('');
-    const [achievable, setAchievable] = useState('');
-    const [relevant, setRelevant] = useState('');
-    const [timeBound, setTimeBound] = useState('');
-    const [longTerm, setLongTerm] = useState('');
-    const [shortTerm, setShortTerm] = useState('');
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+      
+        const newGoal = {
+          name: goalName,
+          description: goalDesc,
+          goalDate: goalDate,
+          reviewDate: reviewDate,
+          completed: false, // Initially mark the goal as incomplete
+        };
 
-    const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const newGoal = {
-        name: goalName,
-        description: goalDesc,
-        goalDate: goalDate,
-        reviewDate: reviewDate,
-        completed: false, // Initially mark the goal as incomplete
+        console.log('Goal Data:', {
+            userName,        // userName to identify the user (will be used in the URL)
+            ...newGoal,      // The rest of the goal data
+          });
+      
+        try {
+          // Make API call to save the goal in MongoDB
+          const response = await fetch(`/api/goal/${userName}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newGoal),
+          });
+      
+          if (response.ok) {
+            // Handle successful goal saving (e.g., show a success message)
+            alert('Goal saved successfully!');
+          } else {
+            throw new Error('Failed to save goal');
+          }
+        } catch (error) {
+          console.error('Error saving goal:', error);
+          alert('Failed to save goal');
+        }
+      
+        // Clear the form
+        setGoalName('');
+        setGoalDesc('');
+        setGoalDate('');
+        setReviewDate('');
       };
-
-    addGoal(newGoal);
-
-    // Clear the form
-    setGoalName('');
-    setGoalDesc('');
-    setGoalDate('');
-    setReviewDate('');
-    setSpecific('');
-    setMeasurable('');
-    setAchievable('');
-    setRelevant('');
-    setTimeBound('');
-    setLongTerm('');
-    setShortTerm('');
-  };
+      
 
   React.useEffect(() => {
     const randomIndex = Math.floor(Math.random() * 21);
@@ -107,8 +118,6 @@ export function Plan({ addGoal }) {
                             <input
                                 className="form-control"
                                 type="text"
-                                value={specific}
-                                onChange={(e) => setSpecific(e.target.value)}
                                 placeholder="Type here..."
                             />
                             <br />
@@ -119,8 +128,6 @@ export function Plan({ addGoal }) {
                             <input
                                 className="form-control"
                                 type="text"
-                                value={measurable}
-                                onChange={(e) => setMeasurable(e.target.value)}
                                 placeholder="Type here..."
                             />
                             <br />
@@ -131,8 +138,6 @@ export function Plan({ addGoal }) {
                             <input
                                 className="form-control"
                                 type="text"
-                                value={achievable}
-                                onChange={(e) => setAchievable(e.target.value)}
                                 placeholder="Type here..."
                             />
                             <br />
@@ -143,8 +148,6 @@ export function Plan({ addGoal }) {
                             <input
                                 className="form-control"
                                 type="text"
-                                value={relevant}
-                                onChange={(e) => setRelevant(e.target.value)}
                                 placeholder="Type here..."
                             />
                             <br />
@@ -155,8 +158,6 @@ export function Plan({ addGoal }) {
                             <input
                                 className="form-control"
                                 type="text"
-                                value={timeBound}
-                                onChange={(e) => setTimeBound(e.target.value)}
                                 placeholder="Type here..."
                             />
                             <br />
@@ -172,8 +173,6 @@ export function Plan({ addGoal }) {
                     <input
                         className="form-control"
                         type="text"
-                        value={longTerm}
-                        onChange={(e) => setLongTerm(e.target.value)}
                         placeholder="Type here..."
                     /><br /><br />
                     <form className="form-group">
@@ -196,8 +195,6 @@ export function Plan({ addGoal }) {
                     <input
                         className="form-control"
                         type="text"
-                        value={shortTerm}
-                        onChange={(e) => setShortTerm(e.target.value)}
                         placeholder="Type here..."
                     /><br />
                     <p>It is good to check back on goals during the process to know how to best move forward</p>

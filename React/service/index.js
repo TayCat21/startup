@@ -76,16 +76,40 @@ secureApiRouter.use(async (req, res, next) => {
 
 // GetGoals
 secureApiRouter.get('/goals', async (req, res) => {
-  const goals = await DB.getGoals();
-  res.send(goals);
+  const userName = req.query.userName;  // Get userName from query parameter
+
+  if (!userName) {
+    return res.status(400).send({ msg: 'UserName is required' });
+  }
+
+  try {
+    const goals = await DB.getGoals(userName);  // Fetch goals from the user's collection
+    res.send(goals);  // Return the user's goals
+  } catch (error) {
+    console.error('Error fetching goals:', error);
+    res.status(500).send({ msg: 'Error fetching goals' });
+  }
 });
 
 // SubmitGoal
 secureApiRouter.post('/goal', async (req, res) => {
-  const goal = { ...req.body, ip: req.ip };
-  await DB.addGoal(goal);
-  const goals = await DB.getGoals();
-  res.send(goals);
+  const { userName, goal } = req.body;  // Ensure userName and goal are passed
+
+  console.log('Received goal for user:', userName);
+  console.log('Goal data:', goal);
+
+  if (!userName || !goal) {
+    return res.status(400).send({ msg: 'UserName and goal are required' });
+  }
+
+  try {
+    await DB.addGoal(userName, goal);  // Add goal to the user's collection
+    const goals = await DB.getGoals(userName);  // Fetch updated goals for the user
+    res.send(goals);  // Return updated goals
+  } catch (error) {
+    console.error('Error adding goal:', error);
+    res.status(500).send({ msg: 'Error adding goal' });
+  }
 });
 
 // Default error handler

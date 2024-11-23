@@ -68,7 +68,7 @@ function App() {
                     />
                     <Route
                         path='/plan'
-                        element={<Plan addGoal={addGoal} />}
+                        element={<Plan userName={userName} addGoal={addGoal} />}
                     />
                     <Route
                         path='/review'
