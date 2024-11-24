@@ -98,3 +98,15 @@ I used some backend endpoints to handle user authentication and also a little bi
 - [x] **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for goals.
 - [x] **Frontend calls service endpoints** - I used fetch functions to call these services.
 
+## DB/Login 👾
+Here is my information reguarding my Database & Login deliverable
+
+For this deliverable, I associated the goals set with the authenticated user. The goal data is stored in a Mongodb database.
+
+- [x] **MongoDB Atlas database created**
+- [x] **Stores data in MongoDB**
+- [x] **User registration** - Accounts are created and stored in the database for future reference.
+- [x] **Existing user** - Goals get saved and displayed for a currently registered user.
+- [x] **Use MongoDB to store credentials** - Both user and their goals are stored in the database. Passwords are hashed for protection.
+- [x] **Restricts functionality** - You can't access anything until you are logged in using a reserved api. Also, the goals are user specific and will only be served their own.
+

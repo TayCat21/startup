@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Event, notifier } from '../goals/notifier';
 import './plan.css';
 
 export function Plan({ userName, addGoal }) {
+    const navigate = useNavigate();
     const [myQuote, setQuote] = React.useState('Loading...');
     const [quoteAuthor, setQuoteAuthor] = React.useState('unknown');
 
@@ -54,6 +56,8 @@ export function Plan({ userName, addGoal }) {
         setGoalDesc('');
         setGoalDate('');
         setReviewDate('');
+
+        navigate('/goals');
       };
       
 
@@ -102,7 +106,6 @@ export function Plan({ userName, addGoal }) {
             /><br /><br />
             <input className="btn btn-secondary" type="submit" value="Submit" />
             <br /><br />
-            <button><a href="/goals">Return to MyGoals</a></button>
             </form>
               </section>
       
