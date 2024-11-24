@@ -95,7 +95,7 @@ secureApiRouter.get('/goals/:userName', async (req, res) => {
 secureApiRouter.post('/goal/:userName', async (req, res) => {
   const { userName } = req.params;  // Get userName from URL parameter
   const { goal } = req.body;  // Get goal data from request body
-  
+
   console.log('Received goal for user:', userName);
   console.log('Goal data:', goal);
 
@@ -110,6 +110,34 @@ secureApiRouter.post('/goal/:userName', async (req, res) => {
   } catch (error) {
     console.error('Error adding goal:', error);
     res.status(500).send({ msg: 'Error adding goal' });
+  }
+});
+
+// update goal completion status
+secureApiRouter.put('/goal/:userName/:goalId', async (req, res) => {
+  const { userName, goalId } = req.params;
+  const { completed, goalDate } = req.body;
+
+  if (completed === undefined || goalDate === undefined) {
+    return res.status(400).send({ msg: 'missing required status' });
+  }
+
+  try {
+    console.log(`Attempting to update goal ${goalId} for user ${userName}`);
+    // Update the goal's 'completed' field in the user's collection
+    const result = await DB.updateGoal(userName, goalId, { completed, goalDate });
+
+    if (result.modifiedCount === 0) {
+      return res.status(404).send({ msg: 'Goal not found or already updated' });
+    }
+
+    // Optionally, fetch the updated list of goals for the user (if needed)
+    const goals = await DB.getGoals(userName);
+
+    res.send(goals);  // Return the updated list of goals
+  } catch (error) {
+    console.error('Error updating goal:', error);
+    res.status(500).send({ msg: 'Error updating goal' });
   }
 });
 

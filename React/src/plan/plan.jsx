@@ -17,6 +17,7 @@ export function Plan({ userName, addGoal }) {
         const newGoal = {
           name: goalName,
           description: goalDesc,
+          startDate: new Date().toLocaleDateString(), //get today's date
           goalDate: goalDate,
           reviewDate: reviewDate,
           completed: false, // Initially mark the goal as incomplete

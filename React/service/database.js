@@ -1,4 +1,5 @@
 const { MongoClient } = require('mongodb');
+const { ObjectId } = require('mongodb');
 const bcrypt = require('bcrypt');
 const uuid = require('uuid');
 const config = require('./dbConfig.json');
@@ -51,10 +52,30 @@ async function addGoal(userName, goal) {
     return userGoalsCollection.find().toArray();  // Fetch all goals for the given user
   }
 
+  async function updateGoal(userName, goalId, updateData) {
+    const userGoalsCollection = dbStart.collection(userName);  // Access the user's collection
+    try {
+      // Convert goalId to ObjectId if it's a string
+      const goalObjectId = new ObjectId(goalId);  // Ensures goalId is a valid ObjectId
+  
+      const result = await userGoalsCollection.updateOne(
+        { _id: goalObjectId }, // Find the goal by its ObjectId
+        { $set: updateData } // Update the goal's completion status
+      );
+  
+      return result;
+    } catch (error) {
+      console.error('Error updating goal:', error);
+      throw error;  // Log the error for debugging
+    }
+  }
+  
+
 module.exports = {
   getUser,
   getUserByToken,
   createUser,
   addGoal,
   getGoals,
+  updateGoal,
 };

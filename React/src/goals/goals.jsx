@@ -48,16 +48,36 @@ export function Goals({ userName, goals }) {
   }, []);
 
   // Handle Goal Completion
-  const handleGoalCompletion = (goal) => {
-    const updatedGoals = storedGoals.map((g) => 
-      g.name === goal.name ? { ...g, completed: true } : g
+  const handleGoalCompletion = async (goal) => {
+    const today = new Date().toLocaleDateString();
+    // Update the local state to reflect the change immediately
+    const updatedGoals = storedGoals.map((g) =>
+      g.name === goal.name ? { ...g, completed: true, goalDate: today } : g
     );
-    
     setStoredGoals(updatedGoals);
-
-    // Send GoalCompleted event
-    notifier.broadcastEvent(userName, Event.GoalCompleted);
-  };
+  
+    // Send the goal completion status update to the backend
+    try {
+      const response = await fetch(`/api/goal/${userName}/${goal._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ completed: true, goalDate: today }), // Mark the goal as complete
+      });
+  
+      if (response.ok) {
+        // After a successful API call, broadcast the event
+        notifier.broadcastEvent(userName, Event.GoalCompleted);
+      } else {
+        throw new Error('Failed to update goal on the server');
+      }
+    } catch (error) {
+      console.error('Error completing goal:', error);
+      // Optionally, reset the goal completion in the UI in case of failure
+      alert('Failed to mark goal as completed');
+    }
+  };  
 
   return (
     <main>
@@ -84,7 +104,7 @@ export function Goals({ userName, goals }) {
                 <Accordion.Header>{goal.name}</Accordion.Header>
                 <Accordion.Body>
                   <p className="goalDesc">{goal.description}</p>
-                  <p className="goalDate">Start Date: {goal.startDate} - End Date: {goal.endDate}</p>
+                  <p className="goalDate">Start Date: {goal.startDate} - End Date: {goal.goalDate}</p>
                   <p className="reviewDate">Review set for: {goal.reviewDate}</p>
                   <button onClick={() => handleGoalCompletion(goal)} className="myButton">
                     Complete Goal
@@ -107,7 +127,7 @@ export function Goals({ userName, goals }) {
                 <Accordion.Header>{goal.name}</Accordion.Header>
                 <Accordion.Body>
                   <p className="goalDesc">{goal.description}</p>
-                  <p className="goalDate">Start Date: {goal.startDate} - End Date: {goal.endDate}</p>
+                  <p className="goalDate">Start Date: {goal.startDate} - End Date: {goal.goalDate}</p>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
