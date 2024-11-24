@@ -34,7 +34,7 @@ export function Plan({ userName, addGoal }) {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(newGoal),
+            body: JSON.stringify({ goal: newGoal }),
           });
       
           if (response.ok) {

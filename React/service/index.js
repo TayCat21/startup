@@ -75,8 +75,8 @@ secureApiRouter.use(async (req, res, next) => {
 });
 
 // GetGoals
-secureApiRouter.get('/goals', async (req, res) => {
-  const userName = req.query.userName;  // Get userName from query parameter
+secureApiRouter.get('/goals/:userName', async (req, res) => {
+  const userName = req.params.userName;  // Get userName from URL parameter
 
   if (!userName) {
     return res.status(400).send({ msg: 'UserName is required' });
@@ -92,9 +92,10 @@ secureApiRouter.get('/goals', async (req, res) => {
 });
 
 // SubmitGoal
-secureApiRouter.post('/goal', async (req, res) => {
-  const { userName, goal } = req.body;  // Ensure userName and goal are passed
-
+secureApiRouter.post('/goal/:userName', async (req, res) => {
+  const { userName } = req.params;  // Get userName from URL parameter
+  const { goal } = req.body;  // Get goal data from request body
+  
   console.log('Received goal for user:', userName);
   console.log('Goal data:', goal);
 

@@ -13,7 +13,7 @@ export function Goals({ userName, goals }) {
   React.useEffect(() => {
     const fetchGoals = async () => {
       try {
-        const response = await fetch(`/api/goals?userName=${userName}`);
+        const response = await fetch(`/api/goals/${userName}`);
         if (response.ok) {
           const fetchedGoals = await response.json();
           setStoredGoals(fetchedGoals);  // Set the fetched goals into state
