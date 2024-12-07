@@ -25,10 +25,10 @@ export function Plan({ userName, addGoal }) {
           completed: false, // Initially mark the goal as incomplete
         };
 
-        console.log('Goal Data:', {
-            userName,        // userName to identify the user (will be used in the URL)
-            ...newGoal,      // The rest of the goal data
-          });
+        // console.log('Goal Data:', {
+        //     userName,        // userName to identify the user (will be used in the URL)
+        //     ...newGoal,      // The rest of the goal data
+        //   });
       
         try {
           // Make API call to save the goal in MongoDB
@@ -43,6 +43,7 @@ export function Plan({ userName, addGoal }) {
           if (response.ok) {
             // Handle successful goal saving (e.g., show a success message)
             alert('Goal saved successfully!');
+            notifier.broadcastEvent(userName, Event.Start);
           } else {
             throw new Error('Failed to save goal');
           }

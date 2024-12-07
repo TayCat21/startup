@@ -10,6 +10,10 @@ const Modal = () => {
 
     const toggleModal = () => {
         setIsOpen(prevState => !prevState);
+
+        if (!isOpen) {
+            notifier.broadcastEvent(userName, Event.End);
+        }
     };
 
     useEffect(() => {

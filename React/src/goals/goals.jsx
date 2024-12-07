@@ -79,6 +79,7 @@ export function Goals({ userName, goals }) {
     }
   };  
 
+
   return (
     <main>
       <div className="container" id="goalBlock">

@@ -40,7 +40,6 @@ function peerProxy(httpServer) {
     // Respond to pong messages by marking the connection alive
     ws.on('pong', () => {
       connection.alive = true;
-      console.log('pong');
     });
   });
 
@@ -52,7 +51,7 @@ function peerProxy(httpServer) {
         c.ws.terminate();
       } else {
         c.alive = false;
-        c.ws.ping(console.log('ping'));
+        c.ws.ping();
       }
     });
   }, 10000);

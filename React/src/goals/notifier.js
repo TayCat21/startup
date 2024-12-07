@@ -32,9 +32,11 @@ class EventNotifier {
     const event = new EventMessage(from, type);
     if (this.socket.readyState === WebSocket.OPEN) {
       this.socket.send(JSON.stringify(event));  
+    } else {
+      console.warn("WebSocket not open, event will not be broadcast");
     }
     this.receiveEvent(event);
-  }
+ }
 
   addHandler(handler) {
     this.handlers.push(handler);
