@@ -64,7 +64,7 @@ function App() {
                     />
                     <Route
                         path='/ideas'
-                        element={<Ideas />}
+                        element={<Ideas userName={userName} />}
                     />
                     <Route
                         path='/plan'

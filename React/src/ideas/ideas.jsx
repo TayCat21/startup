@@ -3,7 +3,7 @@ import './ideas.css';
 import Timer from './timer';
 import Modal from './popup';
 
-export function Ideas() {
+export function Ideas({ userName }) {
     const [questions, setQuestions] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState('');
 
@@ -52,7 +52,7 @@ export function Ideas() {
             </div>
             <br />
             <div>
-                <Modal />
+                <Modal userName={userName} />
             </div>
         </div>
 

@@ -3,7 +3,7 @@ import Confetti from 'react-confetti-boom';
 import { Event, notifier } from './../goals/notifier';
 import './modal.css';
 
-const Modal = () => {
+const Modal = ({ userName }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [showConfetti, setShowConfetti] = useState(false);
     const [isFadingOut, setIsFadingOut] = useState(false);
