@@ -30,6 +30,9 @@ class EventNotifier {
 
   broadcastEvent(from, type) {
     const event = new EventMessage(from, type);
+    if (this.socket.readyState === WebSocket.OPEN) {
+      this.socket.send(JSON.stringify(event));  
+    }
     this.receiveEvent(event);
   }
 

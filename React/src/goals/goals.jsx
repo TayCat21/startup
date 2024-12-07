@@ -34,7 +34,7 @@ export function Goals({ userName, goals }) {
     // Handler to listen for events and update messages
     const handleEvent = (event) => {
       let newMessages = notifier.getMessages();
-      if (newMessages.length > 10) {
+      if (newMessages.length > 20) {
         newMessages = newMessages.slice(1, 10);
       }
       setMessages(newMessages);
