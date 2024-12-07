@@ -17,10 +17,15 @@ class EventNotifier {
   handlers = [];
 
   constructor() {
-    setInterval(() => {
-      const userName = 'Laura';  // Simulate a user triggering the event
-      this.broadcastEvent(userName, Event.Start);
-    }, 10000);  // Simulate every 10 seconds
+    let port = window.location.port;
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    this.socket = new WebSocket(`${protocol}://${window.location.hostname}:${port}/ws`);
+    this.socket.onmessage = async (msg) => {
+      try {
+        const event = JSON.parse(await msg.data.text());
+        this.receiveEvent(event);
+      } catch {}
+    };
   }
 
   broadcastEvent(from, type) {
