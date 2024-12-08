@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function Timer() {
-  const [secondsRemaining, setSecondsRemaining] = useState(3); // 5 minutes = 300 seconds
+  const [secondsRemaining, setSecondsRemaining] = useState(300); // 5 minutes = 300 seconds
   const [timerEnded, setTimerEnded] = useState(false); // To track if the timer has ended
 
   // Create an audio object (using a simple sound file)

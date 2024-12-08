@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './review.css';
 
 export function Review({ userName }) {
@@ -49,17 +50,18 @@ export function Review({ userName }) {
         <form>
             <label>How did the goal go?</label><br />
             <input type="range" min="0" max="10" /><br />
-            <label>why?</label>
+            <label>why?</label><br />
             <input type="text" placeholder="type here..." /><br /><br />
 
             <label>How much did you care about your goal?</label><br />
             <input type="range" min="0" max="10" /><br />
-            <label>why?</label>
+            <label>why?</label><br />
             <input type="text" placeholder="type here..." /><br /><br />
 
             <label>Did you have any external support? (ie friends,family)</label><br />
             <label for="radio1">yes</label>
             <input type="radio" id="radio1" name="varRadio" value="radio1" checked />
+            
             <label for="radio2">no</label>
             <input type="radio" id="radio2" name="varRadio" value="radio2" /><br /><br />
 

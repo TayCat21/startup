@@ -110,3 +110,14 @@ For this deliverable, I associated the goals set with the authenticated user. Th
 - [x] **Use MongoDB to store credentials** - Both user and their goals are stored in the database. Passwords are hashed for protection.
 - [x] **Restricts functionality** - You can't access anything until you are logged in using a reserved api. Also, the goals are user specific and will only be served their own.
 
+## WebSocket 🕸️
+Here's the deliverable for my peer-to-peer websockets. I used it to implement a live achievements bar on my goals page.
+
+- [x] **Backend listens for WebSocket connection**
+- [x] **Frontend makes WebSocket connection**
+- [x] **Data sent over WebSocket connection** - There are 3 notifications sent over websockets: Goal Completed, new goal started, and finishing a Brainstorm session.
+- [x] **WebSocket data displayed** - The first 20 of these messages can pop up in the achievements box. It empties each time the page is refreshed.
+- [x] **All visible elements are working** - It's fully functional!
+
+🎉 Yay my Website's done! 🎉
+

@@ -56,8 +56,18 @@ footer {
     flex-basis: 80%;
     text-align: center;
     align-items: center;
-    padding: 3px;
+    padding: 30px;
     margin: 20px;
     border: 2px #1e939a solid;
     background-color: #b2d8f1;
+  }
+
+  label {
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+    padding-top: 25px;
+    padding-bottom: 10px;
+  }
+
+  #radio1 {
+    margin-right: 25px;
   }
