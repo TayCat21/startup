@@ -42,6 +42,7 @@ export function Ideas({ userName }) {
             <div className="ideaQuestion"> 
                 <div>
                     <p>{currentQuestion}</p> 
+                    <br />
                     <input type="text" placeholder="type here..." />
                 </div>
             </div>

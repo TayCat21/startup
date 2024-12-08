@@ -19,7 +19,7 @@ footer {
     align-items: center;
     margin-top: 50px;
     margin-bottom: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 30px;
   }
 
   aside {
@@ -42,17 +42,18 @@ footer {
     color: white;
     padding: 5px;
     border: 2px solid #dd9428;
+    margin-bottom: 30px;
   }
 
   .ideaQuestion {
     background: #36cebe;
     border-radius: 50%;
     width: 250px;
-    height: 150px;
+    height: 200px;
     display: flex; 
     justify-content: center; 
     align-items: center;
-    padding: 5px;
+    padding: 50px;
   }
 
   #timer {
