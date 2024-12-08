@@ -1,10 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './review.css';
 
-export function Review() {
+export function Review({ userName }) {
+  const { goalId } = useParams();  // Extract goalId from URL
+  const [goal, setGoal] = useState(null);
+
+  // Log goalId and userName to verify they're available
+  console.log('Extracted goalId:', goalId);
+  console.log('Logged-in userName:', userName);
+
+  // Fetch the goal from your MongoDB or API
+  useEffect(() => {
+    const fetchGoal = async () => {
+      if (!goalId || !userName) {
+        console.error('Goal ID and UserName are required');
+        console.log('ID:', goalId);
+        console.log('UserName:', userName);  
+        return;
+      }
+      
+      try {
+        const response = await fetch(`/api/goal/${goalId}?userName=${userName}`);
+        
+        if (!response.ok) {
+          throw new Error('Failed to fetch goal');
+        }
+        const goal = await response.json();
+        console.log('Fetched goal:', goal);
+        
+        // Update state with the fetched goal
+        setGoal(goal);
+      } catch (error) {
+        console.error('Error fetching goal:', error);
+        throw error; // Throw the error to handle it in your component
+      }
+    };
+
+    fetchGoal();
+  }, [goalId]);
+
+  if (!goal) return <div>Loading...</div>;
+
   return (
     <main>
-        <h1><span className="goalName">Goal 1</span></h1> 
+        <h1><span className="goalName">{goal.name}</span></h1> 
 
         <form>
             <label>How did the goal go?</label><br />
@@ -31,7 +71,7 @@ export function Review() {
             <label>To keep moving forward, how would you change your goal?</label><br />
             <input type="text" placeholder="type here..." /><br /><br />
 
-            <input className="return btn btn-primary" type="submit" value="Save" /> 
+            <button className="myButton"><a href="/goals">I'm Done</a></button>
         </form>
 
         <div className="modal" tabindex="-1" role="dialog"> 

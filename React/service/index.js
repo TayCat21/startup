@@ -142,6 +142,29 @@ secureApiRouter.put('/goal/:userName/:goalId', async (req, res) => {
   }
 });
 
+secureApiRouter.get('/goal/:goalId', async (req, res) => {
+  const { goalId } = req.params;  // Capture goalId from the URL
+  const { userName } = req.query;
+
+  if (!goalId || !userName) {
+    return res.status(400).send({ msg: 'Goal ID and UserName are required' });
+  }
+
+  try {
+    // Assuming DB.getGoalById is a function that fetches a goal by its ID
+    const goal = await DB.getGoalById(userName, goalId);  
+
+    if (!goal) {
+      return res.status(404).send({ msg: 'Goal not found' });
+    }
+
+    res.send(goal);  // Send the goal back as the response
+  } catch (error) {
+    console.error('Error fetching goal:', error);
+    res.status(500).send({ msg: 'Error fetching goal' });
+  }
+});
+
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });

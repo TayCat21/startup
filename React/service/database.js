@@ -27,6 +27,18 @@ function getUserByToken(token) {
   return userCollection.findOne({ token: token });
 }
 
+async function getGoalById(userName, goalId) {
+  const userGoalsCollection = dbStart.collection(userName);  // Get the user's goals collection
+  try {
+    const goalObjectId = new ObjectId(goalId);  // Convert goalId to ObjectId
+    const goal = await userGoalsCollection.findOne({ _id: goalObjectId });  // Fetch the goal by ObjectId
+    return goal;
+  } catch (error) {
+    console.error('Error fetching goal by ID:', error);
+    throw error;
+  }
+}
+
 async function createUser(email, password) {
   // Hash the password before we insert it into the database
   const passwordHash = await bcrypt.hash(password, 10);
@@ -74,6 +86,7 @@ async function addGoal(userName, goal) {
 module.exports = {
   getUser,
   getUserByToken,
+  getGoalById,
   createUser,
   addGoal,
   getGoals,

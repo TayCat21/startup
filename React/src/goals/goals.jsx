@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS
 import './goals.css';
 import { Players } from './Players';
 import { Event, notifier } from './notifier';
+import { Link } from 'react-router-dom';
 
 export function Goals({ userName, goals }) {
   const [storedGoals, setStoredGoals] = useState([]);  // Initially empty array for goals
@@ -110,8 +111,9 @@ export function Goals({ userName, goals }) {
                   <button onClick={() => handleGoalCompletion(goal)} className="myButton">
                     Complete Goal
                   </button>
-                  <button className="myButton"><a href="/plan">Edit Goal</a></button>
-                  <button className="myButton"><a href="/review">Review Goal</a></button>
+                  <button className="myButton">
+                    <Link to={`/review/${goal._id}`}>Review Goal</Link>
+                  </button>
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
