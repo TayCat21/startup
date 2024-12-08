@@ -23,7 +23,7 @@ function App() {
             <div>
                 <header className="container-fluid myEdit">
                     <nav className="navbar fixed-top navbar-dark">
-                        <img src="favicon.ico" alt="logo" />
+                        <img src="../public/favicon.ico" alt="logo" />
                         <div className="navbar-brand">MyGoalSetter</div>
                         <menu className="navbar-nav">
                             <li className="nav-item">

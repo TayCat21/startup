@@ -74,29 +74,6 @@ export function Review({ userName }) {
             <button className="myButton"><a href="/goals">I'm Done</a></button>
         </form>
 
-        <div className="modal" tabindex="-1" role="dialog"> 
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Modal title</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body"> 
-                <span className="popuptext" id="my2ndPopup">
-                  <p>Excelent Work! How would you like to move forward?</p>
-                  </span>
-                <div className="modal-footer">
-                  <button><a href="plan.html">Update Goal</a></button> 
-                  <button>Remove Goal</button> 
-                  <button>Mark as Accomplished</button> 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
     </main>
   );
 }

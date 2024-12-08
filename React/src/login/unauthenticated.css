@@ -57,6 +57,10 @@ header {
     align-items: center;
     padding: 0 20px;  /* Optional padding */
   } 
+
+  body {
+    height: 0;
+  }
  
   @media (max-width: 768px) {
     .unauthenticated-container {

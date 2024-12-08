@@ -1,12 +1,10 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { MessageDialog } from './MessageDialog';
 import './unauthenticated.css';
 
 export function Unauthenticated(props) {
   const [userName, setUserName] = React.useState(props.userName);
   const [password, setPassword] = React.useState('');
-  const [displayError, setDisplayError] = React.useState(null);
 
   async function loginUser() {
     loginOrCreate(`/api/auth/login`);
@@ -28,13 +26,11 @@ export function Unauthenticated(props) {
       localStorage.setItem('userName', userName);
       props.onLogin(userName);
     } else {
-      const body = await response.json();
-      setDisplayError(`⚠ Error: ${body.msg}`); // Sets the error message
+      alert('⚠ Error: Incorrect Login');
     }
   }
 
   return (
-    <>
       <div>
         <div className='input-group mb-3'>
           <span className='input-group-text'>👤</span>
@@ -51,8 +47,5 @@ export function Unauthenticated(props) {
           Create
         </Button>
       </div>
-
-      <MessageDialog message={displayError} onHide={() => setDisplayError(null)} />
-    </>
   );
 }
