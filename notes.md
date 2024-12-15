@@ -87,5 +87,54 @@ switch (expression) {
     - rsh: Executes a command on a remote machine without logging into it
     - oc rsh: Opens a remote shell session to a container using secure shell (SSH) technology.
 
+    ### Finals notes: 
+    - Default Ports
+      - HTTP: 80
+      - HTTPS: 443
+      - SSH: 22
+    - HTTP status code ranges
+      - 500: server error
+      - 400: client error
+      - 300: caching error
+      - 200: success
+
+    - The Content-Type header is crucial for specifying the format of the data being transmitted, ensuring that the sender and receiver correctly interpret and process the content.
+
+    - Secure cookie: Ensures cookies are only transmitted over encrypted connections, preventing interception.
+    - HttpOnly cookie: Prevents cookies from being accessed by JavaScript, reducing the risk of XSS attacks.
+    - Same-site cookie: Restricts cookies to same-site or top-level requests, mitigating CSRF attacks and improving privacy.
+
+    - JSX: JavaScript XML
+      - a syntax extension for JavaScript, primarily used with React. It allows you to write HTML-like code within JavaScript, making it easier to create React components.
+    - JS: JavaScript
+      - a high-level, interpreted programming language used primarily for building dynamic web content. It is a core technology of the web alongside HTML and CSS.
+    - AWS: Amazon Web Services
+      - a subsidiary of Amazon providing cloud computing services, including computing power, storage, and other services like databases, machine learning, and more, used by developers to build scalable applications.
+    - NPM: Node Package Manager
+      - a package manager for JavaScript, particularly for managing dependencies in Node.js projects. It helps developers install, share, and manage libraries and tools for their JavaScript applications.
+    - NVM: Node Version Manager
+      - a tool that allows developers to manage multiple versions of Node.js on the same machine. It enables easy switching between different versions of Node.js for various projects.
+
+    - The WebSocket protocol is intended to provide full-duplex communication channels over a single, long-lived connection between a client (typically a web browser) and a server.
+
+    - React.useState is a hook that allows you to add state to functional components in React.
+      - state is a setter function
+      - setState updates the variable
+
+    - React Hooks
+      - useState: Allows you to add state to functional components.
+      - useEffect: Handles side effects like data fetching, DOM updates, or subscriptions in functional components.
+      - useContext: Allows you to access context values directly in a functional component.
+      - useReducer: An alternative to useState for more complex state logic (like Redux).
+      - useRef: Provides a way to access and persist mutable values across renders without causing re-renders.
+      - useMemo: Memoizes expensive calculations, so they are only recalculated when necessary.
+      - useCallback: Memoizes functions, preventing them from being re-created unnecessarily on every render.
+      - useLayoutEffect: Similar to useEffect, but it runs synchronously after all DOM mutations. Useful for DOM measurements.
+
+    - Node.js: a runtime environment that allows you to run JavaScript code on the server-side, outside the browser.
+    - PM2: a process manager for Node.js applications that helps to keep applications running continuously, even in production environments.
+    - Vite: a next-generation build tool and development server designed to provide fast and efficient development workflows for modern web projects.
+
+
 
 
