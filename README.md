@@ -121,3 +121,23 @@ Here's the deliverable for my peer-to-peer websockets. I used it to implement a 
 
 🎉 Yay my Website's done! 🎉
 
+## Final Pictures
+
+**Login Page**
+
+![Empty Login](pitchPics/finalPics/loginPage.JPG)
+
+![User Login](pitchPics/finalPics/loginFull.JPG)
+
+**MyGoals Home**
+
+![Home](pitchPics/finalPics/homePage.JPG)
+
+**Planning Stage**
+
+![Make Goal](pitchPics/finalPics/Goals1.JPG)
+
+**Brainstorming Stage**
+
+![Ideas](pitchPics/finalPics/ideaPage.JPG)
+
